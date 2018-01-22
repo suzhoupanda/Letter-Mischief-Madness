@@ -7,6 +7,18 @@
 //
 
 #import "GameScene.h"
+#import "RandomPointGenerator.h"
+#import "Constants.h"
+#import "NSString+StringHelperMethods.h"
+#import "Cloud.h"
+#import "LetterManager.h"
+@interface GameScene()
+
+@property NSArray<NSValue*>*randomSpawnPoints;
+@property LetterManager* letterManager;
+@property NSString* targetWord;
+
+@end
 
 @implementation GameScene {
     SKShapeNode *_spinnyNode;
@@ -16,67 +28,120 @@
 - (void)didMoveToView:(SKView *)view {
     // Setup your scene here
     
-    // Get label node from scene and store it for use later
-    _label = (SKLabelNode *)[self childNodeWithName:@"//helloLabel"];
+    [self configureScene];
+    [self setupBackground];
+    [self setupBGMusic];
+    [self acquireTargetWord];
+    [self setupSpawnPoints];
+    [self setupLetterManager];
+    [self createClouds];
+    [self.letterManager addLettersTo:self];
+}
+
+-(void)setupLetterManager{
     
-    _label.alpha = 0.0;
-    [_label runAction:[SKAction fadeInWithDuration:2.0]];
+    self.letterManager = [[LetterManager alloc] initWithSpawnPoints:self.randomSpawnPoints andWithTargetWord:self.targetWord];
     
-    CGFloat w = (self.size.width + self.size.height) * 0.05;
+}
+
+-(void)acquireTargetWord{
     
-    // Create shape node to use during mouse interaction
-    _spinnyNode = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(w, w) cornerRadius:w * 0.3];
-    _spinnyNode.lineWidth = 2.5;
+    self.targetWord = @"LOVE";
+}
+
+-(void)configureScene{
+    self.anchorPoint = CGPointMake(0.5, 0.5);
+}
+
+-(void)createClouds{
     
-    [_spinnyNode runAction:[SKAction repeatActionForever:[SKAction rotateByAngle:M_PI duration:1]]];
-    [_spinnyNode runAction:[SKAction sequence:@[
-                                                [SKAction waitForDuration:0.5],
-                                                [SKAction fadeOutWithDuration:0.5],
-                                                [SKAction removeFromParent],
-                                                ]]];
+    
+    
+    for (NSValue*pointVal in self.randomSpawnPoints) {
+        NSLog(@"Creating cloud at another random point...");
+        Cloud* randomCloud = [Cloud getRandomCloud];
+        [randomCloud addSpriteTo:self atPosition:pointVal.CGPointValue];
+    }
+}
+
+-(void)setupBGMusic{
+    SKAudioNode* bgNode = [SKAudioNode nodeWithFileNamed:@"Mishief-Stroll.mp3"];
+    
+    if(bgNode){
+        [self addChild:bgNode];
+
+    }
+}
+
+-(void)setupBackground{
+    
+    SKEmitterNode* starEmitter = [SKEmitterNode nodeWithFileNamed:@"stars"];
+    [self addChild:starEmitter];
+    starEmitter.position = CGPointZero;
+}
+
+//TODO: need to refactor
+
+-(void)setupSpawnPoints{
+    
+    RandomPointGenerator* pointGen = [[RandomPointGenerator alloc] init];
+    int numPoints = kNumberOfOnScreenDebugPoints;
+    self.randomSpawnPoints = [pointGen getArrayOfOnScreenPoints: numPoints];
+    
+    for (NSValue*randomPointVal in self.randomSpawnPoints) {
+        
+        CGPoint cgPoint = randomPointVal.CGPointValue;
+        NSString* pointStr = [NSString getCoordString:cgPoint];
+        NSLog(@"Point generated at %@",pointStr);
+    }
+
+}
+
+/** Gets a random spawn point from the array of randomly generated spawn points **/
+
+-(CGPoint)getRandomSpawnPoint{
+    
+    NSUInteger totalSpawnPoints = self.randomSpawnPoints.count;
+    
+    NSUInteger randomIndex = (NSUInteger)arc4random_uniform((UInt32)totalSpawnPoints);
+    
+    return [[self.randomSpawnPoints objectAtIndex:randomIndex] CGPointValue];
 }
 
 
 - (void)touchDownAtPoint:(CGPoint)pos {
-    SKShapeNode *n = [_spinnyNode copy];
-    n.position = pos;
-    n.strokeColor = [SKColor greenColor];
-    [self addChild:n];
+
 }
 
 - (void)touchMovedToPoint:(CGPoint)pos {
-    SKShapeNode *n = [_spinnyNode copy];
-    n.position = pos;
-    n.strokeColor = [SKColor blueColor];
-    [self addChild:n];
+
 }
 
 - (void)touchUpAtPoint:(CGPoint)pos {
-    SKShapeNode *n = [_spinnyNode copy];
-    n.position = pos;
-    n.strokeColor = [SKColor redColor];
-    [self addChild:n];
+
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    // Run 'Pulse' action from 'Actions.sks'
-    [_label runAction:[SKAction actionNamed:@"Pulse"] withKey:@"fadeInOut"];
+
     
-    for (UITouch *t in touches) {[self touchDownAtPoint:[t locationInNode:self]];}
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    for (UITouch *t in touches) {[self touchMovedToPoint:[t locationInNode:self]];}
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    for (UITouch *t in touches) {[self touchUpAtPoint:[t locationInNode:self]];}
 }
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    for (UITouch *t in touches) {[self touchUpAtPoint:[t locationInNode:self]];}
 }
 
 
 -(void)update:(CFTimeInterval)currentTime {
+    
     // Called before each frame is rendered
+    
+    if(self.letterManager){
+        
+        [self.letterManager update:currentTime];
+
+    }
 }
 
 @end

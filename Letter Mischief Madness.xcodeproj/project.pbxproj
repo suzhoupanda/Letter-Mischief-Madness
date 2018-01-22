@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD2860602015FC68001E96B0 /* LetterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD28605F2015FC68001E96B0 /* LetterManager.m */; };
 		BD9A10742015BF6000DBC209 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10732015BF6000DBC209 /* AppDelegate.m */; };
-		BD9A10762015BF6000DBC209 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD9A10752015BF6000DBC209 /* GameScene.sks */; };
-		BD9A10782015BF6000DBC209 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD9A10772015BF6000DBC209 /* Actions.sks */; };
 		BD9A107B2015BF6000DBC209 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A107A2015BF6000DBC209 /* GameScene.m */; };
 		BD9A107E2015BF6000DBC209 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A107D2015BF6000DBC209 /* GameViewController.m */; };
 		BD9A10812015BF6100DBC209 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD9A107F2015BF6100DBC209 /* Main.storyboard */; };
@@ -18,6 +17,17 @@
 		BD9A10892015BF6100DBC209 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10882015BF6100DBC209 /* main.m */; };
 		BD9A10932015BF6100DBC209 /* Letter_Mischief_MadnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10922015BF6100DBC209 /* Letter_Mischief_MadnessTests.m */; };
 		BD9A109E2015BF6100DBC209 /* Letter_Mischief_MadnessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A109D2015BF6100DBC209 /* Letter_Mischief_MadnessUITests.m */; };
+		BD9A10AD2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10AC2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m */; };
+		BD9A10B02015C2A700DBC209 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10AF2015C2A700DBC209 /* Constants.m */; };
+		BD9A10B42015C85200DBC209 /* RandomPointGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10B32015C85200DBC209 /* RandomPointGenerator.m */; };
+		BD9A10B82015D1F000DBC209 /* NSString+StringHelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10B72015D1F000DBC209 /* NSString+StringHelperMethods.m */; };
+		BDAA12CD2015E38100EE2458 /* Cloud.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAA12CC2015E38100EE2458 /* Cloud.m */; };
+		BDAA12D02015ED5900EE2458 /* stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12CF2015ED5900EE2458 /* stars.sks */; };
+		BDAA12D42015EDC900EE2458 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12D32015EDC900EE2458 /* smoke.sks */; };
+		BDAA12D62015EDDB00EE2458 /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12D52015EDDB00EE2458 /* fire.sks */; };
+		BDAA12E02015F32F00EE2458 /* Mishief-Stroll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12DE2015F32600EE2458 /* Mishief-Stroll.mp3 */; };
+		BDAA12E12015F33200EE2458 /* Mission-Plausible.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12DF2015F32600EE2458 /* Mission-Plausible.mp3 */; };
+		BDAA12E32015F39D00EE2458 /* Letter.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAA12E22015F39D00EE2458 /* Letter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,11 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD28605F2015FC68001E96B0 /* LetterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LetterManager.m; sourceTree = "<group>"; };
+		BD2860612015FC81001E96B0 /* LetterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LetterManager.h; sourceTree = "<group>"; };
 		BD9A106F2015BF6000DBC209 /* Letter Mischief Madness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Letter Mischief Madness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9A10722015BF6000DBC209 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD9A10732015BF6000DBC209 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BD9A10752015BF6000DBC209 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		BD9A10772015BF6000DBC209 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		BD9A10792015BF6000DBC209 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		BD9A107A2015BF6000DBC209 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		BD9A107C2015BF6000DBC209 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
@@ -58,6 +68,26 @@
 		BD9A10992015BF6100DBC209 /* Letter Mischief MadnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Letter Mischief MadnessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9A109D2015BF6100DBC209 /* Letter_Mischief_MadnessUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Letter_Mischief_MadnessUITests.m; sourceTree = "<group>"; };
 		BD9A109F2015BF6100DBC209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD9A10AB2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GKRandomDistribution+ScreenPoints.h"; sourceTree = "<group>"; };
+		BD9A10AC2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GKRandomDistribution+ScreenPoints.m"; sourceTree = "<group>"; };
+		BD9A10AF2015C2A700DBC209 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		BD9A10B12015C2B400DBC209 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		BD9A10B22015C84200DBC209 /* RandomPointGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomPointGenerator.h; sourceTree = "<group>"; };
+		BD9A10B32015C85200DBC209 /* RandomPointGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RandomPointGenerator.m; sourceTree = "<group>"; };
+		BD9A10B52015CAFE00DBC209 /* ScreenConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenConstants.h; sourceTree = "<group>"; };
+		BD9A10B62015D1F000DBC209 /* NSString+StringHelperMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+StringHelperMethods.h"; sourceTree = "<group>"; };
+		BD9A10B72015D1F000DBC209 /* NSString+StringHelperMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringHelperMethods.m"; sourceTree = "<group>"; };
+		BD9A10B92015DBBA00DBC209 /* WordManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordManager.h; sourceTree = "<group>"; };
+		BD9A10BA2015DD8900DBC209 /* Letter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Letter.h; sourceTree = "<group>"; };
+		BDAA12CB2015E28100EE2458 /* Cloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cloud.h; sourceTree = "<group>"; };
+		BDAA12CC2015E38100EE2458 /* Cloud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cloud.m; sourceTree = "<group>"; };
+		BDAA12CE2015EC3C00EE2458 /* SpawnPointManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpawnPointManager.h; sourceTree = "<group>"; };
+		BDAA12CF2015ED5900EE2458 /* stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = stars.sks; sourceTree = "<group>"; };
+		BDAA12D32015EDC900EE2458 /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
+		BDAA12D52015EDDB00EE2458 /* fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire.sks; sourceTree = "<group>"; };
+		BDAA12DE2015F32600EE2458 /* Mishief-Stroll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mishief-Stroll.mp3"; sourceTree = "<group>"; };
+		BDAA12DF2015F32600EE2458 /* Mission-Plausible.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mission-Plausible.mp3"; sourceTree = "<group>"; };
+		BDAA12E22015F39D00EE2458 /* Letter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Letter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +115,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD28605E2015FC4F001E96B0 /* LetterUtils */ = {
+			isa = PBXGroup;
+			children = (
+				BD9A10BA2015DD8900DBC209 /* Letter.h */,
+				BDAA12E22015F39D00EE2458 /* Letter.m */,
+				BD28605F2015FC68001E96B0 /* LetterManager.m */,
+				BD2860612015FC81001E96B0 /* LetterManager.h */,
+			);
+			path = LetterUtils;
+			sourceTree = "<group>";
+		};
 		BD9A10662015BF6000DBC209 = {
 			isa = PBXGroup;
 			children = (
@@ -109,9 +150,15 @@
 			isa = PBXGroup;
 			children = (
 				BD9A10722015BF6000DBC209 /* AppDelegate.h */,
+				BD9A10AE2015C28500DBC209 /* Utils */,
 				BD9A10732015BF6000DBC209 /* AppDelegate.m */,
-				BD9A10752015BF6000DBC209 /* GameScene.sks */,
-				BD9A10772015BF6000DBC209 /* Actions.sks */,
+				BD28605E2015FC4F001E96B0 /* LetterUtils */,
+				BD9A10B92015DBBA00DBC209 /* WordManager.h */,
+				BDAA12D72015F04400EE2458 /* music_loops */,
+				BDAA12CE2015EC3C00EE2458 /* SpawnPointManager.h */,
+				BDAA12CF2015ED5900EE2458 /* stars.sks */,
+				BDAA12D32015EDC900EE2458 /* smoke.sks */,
+				BDAA12D52015EDDB00EE2458 /* fire.sks */,
 				BD9A10792015BF6000DBC209 /* GameScene.h */,
 				BD9A107A2015BF6000DBC209 /* GameScene.m */,
 				BD9A107C2015BF6000DBC209 /* GameViewController.h */,
@@ -121,6 +168,10 @@
 				BD9A10842015BF6100DBC209 /* LaunchScreen.storyboard */,
 				BD9A10872015BF6100DBC209 /* Info.plist */,
 				BD9A10882015BF6100DBC209 /* main.m */,
+				BD9A10AB2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.h */,
+				BD9A10AC2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m */,
+				BDAA12CB2015E28100EE2458 /* Cloud.h */,
+				BDAA12CC2015E38100EE2458 /* Cloud.m */,
 			);
 			path = "Letter Mischief Madness";
 			sourceTree = "<group>";
@@ -141,6 +192,29 @@
 				BD9A109F2015BF6100DBC209 /* Info.plist */,
 			);
 			path = "Letter Mischief MadnessUITests";
+			sourceTree = "<group>";
+		};
+		BD9A10AE2015C28500DBC209 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BD9A10AF2015C2A700DBC209 /* Constants.m */,
+				BD9A10B12015C2B400DBC209 /* Constants.h */,
+				BD9A10B22015C84200DBC209 /* RandomPointGenerator.h */,
+				BD9A10B32015C85200DBC209 /* RandomPointGenerator.m */,
+				BD9A10B52015CAFE00DBC209 /* ScreenConstants.h */,
+				BD9A10B62015D1F000DBC209 /* NSString+StringHelperMethods.h */,
+				BD9A10B72015D1F000DBC209 /* NSString+StringHelperMethods.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BDAA12D72015F04400EE2458 /* music_loops */ = {
+			isa = PBXGroup;
+			children = (
+				BDAA12DE2015F32600EE2458 /* Mishief-Stroll.mp3 */,
+				BDAA12DF2015F32600EE2458 /* Mission-Plausible.mp3 */,
+			);
+			path = music_loops;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,10 +324,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD9A10812015BF6100DBC209 /* Main.storyboard in Resources */,
-				BD9A10762015BF6000DBC209 /* GameScene.sks in Resources */,
+				BDAA12D42015EDC900EE2458 /* smoke.sks in Resources */,
+				BDAA12E02015F32F00EE2458 /* Mishief-Stroll.mp3 in Resources */,
+				BDAA12E12015F33200EE2458 /* Mission-Plausible.mp3 in Resources */,
+				BDAA12D02015ED5900EE2458 /* stars.sks in Resources */,
 				BD9A10832015BF6100DBC209 /* Assets.xcassets in Resources */,
 				BD9A10862015BF6100DBC209 /* LaunchScreen.storyboard in Resources */,
-				BD9A10782015BF6000DBC209 /* Actions.sks in Resources */,
+				BDAA12D62015EDDB00EE2458 /* fire.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +359,13 @@
 				BD9A107E2015BF6000DBC209 /* GameViewController.m in Sources */,
 				BD9A10892015BF6100DBC209 /* main.m in Sources */,
 				BD9A10742015BF6000DBC209 /* AppDelegate.m in Sources */,
+				BD9A10B42015C85200DBC209 /* RandomPointGenerator.m in Sources */,
+				BD9A10AD2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m in Sources */,
+				BD2860602015FC68001E96B0 /* LetterManager.m in Sources */,
+				BDAA12CD2015E38100EE2458 /* Cloud.m in Sources */,
+				BD9A10B02015C2A700DBC209 /* Constants.m in Sources */,
+				BD9A10B82015D1F000DBC209 /* NSString+StringHelperMethods.m in Sources */,
+				BDAA12E32015F39D00EE2458 /* Letter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
