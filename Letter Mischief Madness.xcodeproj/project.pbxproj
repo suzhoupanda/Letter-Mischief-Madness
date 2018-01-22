@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD9A10742015BF6000DBC209 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10732015BF6000DBC209 /* AppDelegate.m */; };
+		BD9A10762015BF6000DBC209 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD9A10752015BF6000DBC209 /* GameScene.sks */; };
+		BD9A10782015BF6000DBC209 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD9A10772015BF6000DBC209 /* Actions.sks */; };
+		BD9A107B2015BF6000DBC209 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A107A2015BF6000DBC209 /* GameScene.m */; };
+		BD9A107E2015BF6000DBC209 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A107D2015BF6000DBC209 /* GameViewController.m */; };
+		BD9A10812015BF6100DBC209 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD9A107F2015BF6100DBC209 /* Main.storyboard */; };
+		BD9A10832015BF6100DBC209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9A10822015BF6100DBC209 /* Assets.xcassets */; };
+		BD9A10862015BF6100DBC209 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD9A10842015BF6100DBC209 /* LaunchScreen.storyboard */; };
+		BD9A10892015BF6100DBC209 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10882015BF6100DBC209 /* main.m */; };
+		BD9A10932015BF6100DBC209 /* Letter_Mischief_MadnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10922015BF6100DBC209 /* Letter_Mischief_MadnessTests.m */; };
+		BD9A109E2015BF6100DBC209 /* Letter_Mischief_MadnessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A109D2015BF6100DBC209 /* Letter_Mischief_MadnessUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD9A108F2015BF6100DBC209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD9A10672015BF6000DBC209 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD9A106E2015BF6000DBC209;
+			remoteInfo = "Letter Mischief Madness";
+		};
+		BD9A109A2015BF6100DBC209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD9A10672015BF6000DBC209 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD9A106E2015BF6000DBC209;
+			remoteInfo = "Letter Mischief Madness";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BD9A106F2015BF6000DBC209 /* Letter Mischief Madness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Letter Mischief Madness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9A10722015BF6000DBC209 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BD9A10732015BF6000DBC209 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BD9A10752015BF6000DBC209 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		BD9A10772015BF6000DBC209 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		BD9A10792015BF6000DBC209 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		BD9A107A2015BF6000DBC209 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		BD9A107C2015BF6000DBC209 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		BD9A107D2015BF6000DBC209 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		BD9A10802015BF6100DBC209 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD9A10822015BF6100DBC209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD9A10852015BF6100DBC209 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD9A10872015BF6100DBC209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD9A10882015BF6100DBC209 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BD9A108E2015BF6100DBC209 /* Letter Mischief MadnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Letter Mischief MadnessTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9A10922015BF6100DBC209 /* Letter_Mischief_MadnessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Letter_Mischief_MadnessTests.m; sourceTree = "<group>"; };
+		BD9A10942015BF6100DBC209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD9A10992015BF6100DBC209 /* Letter Mischief MadnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Letter Mischief MadnessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9A109D2015BF6100DBC209 /* Letter_Mischief_MadnessUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Letter_Mischief_MadnessUITests.m; sourceTree = "<group>"; };
+		BD9A109F2015BF6100DBC209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD9A106C2015BF6000DBC209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9A108B2015BF6100DBC209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9A10962015BF6100DBC209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD9A10662015BF6000DBC209 = {
+			isa = PBXGroup;
+			children = (
+				BD9A10712015BF6000DBC209 /* Letter Mischief Madness */,
+				BD9A10912015BF6100DBC209 /* Letter Mischief MadnessTests */,
+				BD9A109C2015BF6100DBC209 /* Letter Mischief MadnessUITests */,
+				BD9A10702015BF6000DBC209 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD9A10702015BF6000DBC209 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD9A106F2015BF6000DBC209 /* Letter Mischief Madness.app */,
+				BD9A108E2015BF6100DBC209 /* Letter Mischief MadnessTests.xctest */,
+				BD9A10992015BF6100DBC209 /* Letter Mischief MadnessUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD9A10712015BF6000DBC209 /* Letter Mischief Madness */ = {
+			isa = PBXGroup;
+			children = (
+				BD9A10722015BF6000DBC209 /* AppDelegate.h */,
+				BD9A10732015BF6000DBC209 /* AppDelegate.m */,
+				BD9A10752015BF6000DBC209 /* GameScene.sks */,
+				BD9A10772015BF6000DBC209 /* Actions.sks */,
+				BD9A10792015BF6000DBC209 /* GameScene.h */,
+				BD9A107A2015BF6000DBC209 /* GameScene.m */,
+				BD9A107C2015BF6000DBC209 /* GameViewController.h */,
+				BD9A107D2015BF6000DBC209 /* GameViewController.m */,
+				BD9A107F2015BF6100DBC209 /* Main.storyboard */,
+				BD9A10822015BF6100DBC209 /* Assets.xcassets */,
+				BD9A10842015BF6100DBC209 /* LaunchScreen.storyboard */,
+				BD9A10872015BF6100DBC209 /* Info.plist */,
+				BD9A10882015BF6100DBC209 /* main.m */,
+			);
+			path = "Letter Mischief Madness";
+			sourceTree = "<group>";
+		};
+		BD9A10912015BF6100DBC209 /* Letter Mischief MadnessTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD9A10922015BF6100DBC209 /* Letter_Mischief_MadnessTests.m */,
+				BD9A10942015BF6100DBC209 /* Info.plist */,
+			);
+			path = "Letter Mischief MadnessTests";
+			sourceTree = "<group>";
+		};
+		BD9A109C2015BF6100DBC209 /* Letter Mischief MadnessUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BD9A109D2015BF6100DBC209 /* Letter_Mischief_MadnessUITests.m */,
+				BD9A109F2015BF6100DBC209 /* Info.plist */,
+			);
+			path = "Letter Mischief MadnessUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD9A106E2015BF6000DBC209 /* Letter Mischief Madness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9A10A22015BF6100DBC209 /* Build configuration list for PBXNativeTarget "Letter Mischief Madness" */;
+			buildPhases = (
+				BD9A106B2015BF6000DBC209 /* Sources */,
+				BD9A106C2015BF6000DBC209 /* Frameworks */,
+				BD9A106D2015BF6000DBC209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Letter Mischief Madness";
+			productName = "Letter Mischief Madness";
+			productReference = BD9A106F2015BF6000DBC209 /* Letter Mischief Madness.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD9A108D2015BF6100DBC209 /* Letter Mischief MadnessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9A10A52015BF6100DBC209 /* Build configuration list for PBXNativeTarget "Letter Mischief MadnessTests" */;
+			buildPhases = (
+				BD9A108A2015BF6100DBC209 /* Sources */,
+				BD9A108B2015BF6100DBC209 /* Frameworks */,
+				BD9A108C2015BF6100DBC209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD9A10902015BF6100DBC209 /* PBXTargetDependency */,
+			);
+			name = "Letter Mischief MadnessTests";
+			productName = "Letter Mischief MadnessTests";
+			productReference = BD9A108E2015BF6100DBC209 /* Letter Mischief MadnessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BD9A10982015BF6100DBC209 /* Letter Mischief MadnessUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9A10A82015BF6100DBC209 /* Build configuration list for PBXNativeTarget "Letter Mischief MadnessUITests" */;
+			buildPhases = (
+				BD9A10952015BF6100DBC209 /* Sources */,
+				BD9A10962015BF6100DBC209 /* Frameworks */,
+				BD9A10972015BF6100DBC209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD9A109B2015BF6100DBC209 /* PBXTargetDependency */,
+			);
+			name = "Letter Mischief MadnessUITests";
+			productName = "Letter Mischief MadnessUITests";
+			productReference = BD9A10992015BF6100DBC209 /* Letter Mischief MadnessUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD9A10672015BF6000DBC209 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Aleksander Makedonski";
+				TargetAttributes = {
+					BD9A106E2015BF6000DBC209 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					BD9A108D2015BF6100DBC209 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BD9A106E2015BF6000DBC209;
+					};
+					BD9A10982015BF6100DBC209 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BD9A106E2015BF6000DBC209;
+					};
+				};
+			};
+			buildConfigurationList = BD9A106A2015BF6000DBC209 /* Build configuration list for PBXProject "Letter Mischief Madness" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD9A10662015BF6000DBC209;
+			productRefGroup = BD9A10702015BF6000DBC209 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD9A106E2015BF6000DBC209 /* Letter Mischief Madness */,
+				BD9A108D2015BF6100DBC209 /* Letter Mischief MadnessTests */,
+				BD9A10982015BF6100DBC209 /* Letter Mischief MadnessUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD9A106D2015BF6000DBC209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9A10812015BF6100DBC209 /* Main.storyboard in Resources */,
+				BD9A10762015BF6000DBC209 /* GameScene.sks in Resources */,
+				BD9A10832015BF6100DBC209 /* Assets.xcassets in Resources */,
+				BD9A10862015BF6100DBC209 /* LaunchScreen.storyboard in Resources */,
+				BD9A10782015BF6000DBC209 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9A108C2015BF6100DBC209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9A10972015BF6100DBC209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD9A106B2015BF6000DBC209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9A107B2015BF6000DBC209 /* GameScene.m in Sources */,
+				BD9A107E2015BF6000DBC209 /* GameViewController.m in Sources */,
+				BD9A10892015BF6100DBC209 /* main.m in Sources */,
+				BD9A10742015BF6000DBC209 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9A108A2015BF6100DBC209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9A10932015BF6100DBC209 /* Letter_Mischief_MadnessTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9A10952015BF6100DBC209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9A109E2015BF6100DBC209 /* Letter_Mischief_MadnessUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD9A10902015BF6100DBC209 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD9A106E2015BF6000DBC209 /* Letter Mischief Madness */;
+			targetProxy = BD9A108F2015BF6100DBC209 /* PBXContainerItemProxy */;
+		};
+		BD9A109B2015BF6100DBC209 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD9A106E2015BF6000DBC209 /* Letter Mischief Madness */;
+			targetProxy = BD9A109A2015BF6100DBC209 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BD9A107F2015BF6100DBC209 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD9A10802015BF6100DBC209 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BD9A10842015BF6100DBC209 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD9A10852015BF6100DBC209 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD9A10A02015BF6100DBC209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BD9A10A12015BF6100DBC209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD9A10A32015BF6100DBC209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Letter Mischief Madness/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ChangzhouPanda.Letter-Mischief-Madness";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BD9A10A42015BF6100DBC209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Letter Mischief Madness/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ChangzhouPanda.Letter-Mischief-Madness";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BD9A10A62015BF6100DBC209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Letter Mischief MadnessTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ChangzhouPanda.Letter-Mischief-MadnessTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Letter Mischief Madness.app/Letter Mischief Madness";
+			};
+			name = Debug;
+		};
+		BD9A10A72015BF6100DBC209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Letter Mischief MadnessTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ChangzhouPanda.Letter-Mischief-MadnessTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Letter Mischief Madness.app/Letter Mischief Madness";
+			};
+			name = Release;
+		};
+		BD9A10A92015BF6100DBC209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Letter Mischief MadnessUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ChangzhouPanda.Letter-Mischief-MadnessUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Letter Mischief Madness";
+			};
+			name = Debug;
+		};
+		BD9A10AA2015BF6100DBC209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Letter Mischief MadnessUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ChangzhouPanda.Letter-Mischief-MadnessUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Letter Mischief Madness";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD9A106A2015BF6000DBC209 /* Build configuration list for PBXProject "Letter Mischief Madness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9A10A02015BF6100DBC209 /* Debug */,
+				BD9A10A12015BF6100DBC209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9A10A22015BF6100DBC209 /* Build configuration list for PBXNativeTarget "Letter Mischief Madness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9A10A32015BF6100DBC209 /* Debug */,
+				BD9A10A42015BF6100DBC209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9A10A52015BF6100DBC209 /* Build configuration list for PBXNativeTarget "Letter Mischief MadnessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9A10A62015BF6100DBC209 /* Debug */,
+				BD9A10A72015BF6100DBC209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9A10A82015BF6100DBC209 /* Build configuration list for PBXNativeTarget "Letter Mischief MadnessUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9A10A92015BF6100DBC209 /* Debug */,
+				BD9A10AA2015BF6100DBC209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD9A10672015BF6000DBC209 /* Project object */;
+}
