@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Spikeman.h"
 #import "Constants.h"
+#import "ContactBitMasks.h"
 
 @interface Spikeman()
 
@@ -28,6 +29,8 @@
         
         self.sprite = [SKSpriteNode spriteNodeWithTexture:texture];
         
+        [self configureNode];
+        
         [self configurePhysicsPropertiesWith:texture];
         
         [self configureAnimations];
@@ -37,16 +40,26 @@
     
 }
 
+-(void)configureNode{
+    self.sprite.name = @"spikeman";
+}
+
 -(void)configurePhysicsPropertiesWith:(SKTexture*)texture{
     
     CGSize textureSize = texture.size;
     
     self.sprite.physicsBody = [SKPhysicsBody bodyWithTexture:texture size:textureSize];
     
-    self.sprite.physicsBody.categoryBitMask = kEnemyCategoryBitMask;
-    self.sprite.physicsBody.collisionBitMask = 0;
-    self.sprite.physicsBody.contactTestBitMask = kLetterCategoryBitMask;
+    self.sprite.physicsBody.categoryBitMask = ENEMY;
+    self.sprite.physicsBody.collisionBitMask = -1;
+    self.sprite.physicsBody.contactTestBitMask = LETTER;
     
+}
+
+-(void)addTo:(SKScene*)scene atPosition:(CGPoint)position{
+    
+    [self.sprite moveToParent:scene];
+    [self.sprite setPosition:position];
 }
 
 -(void)configureAnimations{
@@ -62,7 +75,17 @@
     [self.sprite runAction:rotateAnimation withKey:@"rotateAnimation"];
     
     
+    SKAction* moveLeftAction = [SKAction moveByX:-50.0 y:0.00 duration:0.50];
+    SKAction* moveUpAction = [SKAction moveByX:0.00 y:50.0 duration:0.50];
+    SKAction* moveDownRightAction = [SKAction moveByX:50.0 y:-50 duration:0.50];
     
+    SKAction* moveActionSequence = [SKAction sequence:@[
+        moveLeftAction,moveUpAction,moveDownRightAction
+        ]];
+    
+    SKAction* moveAnimation = [SKAction repeatActionForever:moveActionSequence];
+    
+    [self.sprite runAction:moveAnimation withKey:@"moveAnimation"];
     
 }
 

@@ -9,29 +9,35 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 #import "Letter.h"
+#import "ContactBitMasks.h"
 #import "Constants.h"
+
 
 @interface Letter()
 
 @property SKSpriteNode* sprite;
 @property int health;
+@property NSUInteger wordIndex;
 
 @end
 
 @implementation Letter
 
--(instancetype)initWithLetter:(char)letter andWithStartingHealth:(int)startingHealth{
+-(instancetype)initWithLetter:(char)letter{
     
-    self = [self initWithLetter:letter];
-    
-    if(self){
-        self.health = startingHealth;
-    }
+    self = [self initWithLetter:letter andWithWordIndex:0];
     
     return self;
 }
 
--(instancetype)initWithLetter:(char)letter{
+-(instancetype)initWithLetter:(char)letter andWithWordIndex:(NSUInteger)wordIndex{
+    
+    self = [self initWithLetter:letter andWithStartingHealth:3 andWithWordIndex:wordIndex];
+    
+    return self;
+}
+
+-(instancetype)initWithLetter:(char)letter andWithStartingHealth: (int)startingHealth andWithWordIndex:(NSUInteger)wordIndex{
 
     self = [super init];
     
@@ -39,8 +45,8 @@
         
         letter = toupper(letter);
         
-        self.health = 3;
-        self.isDead = NO;
+        self.health = startingHealth;
+        self.wordIndex = wordIndex;
         
         NSString* spriteName = [NSString stringWithFormat:@"letter_%c",letter];
 
@@ -58,6 +64,9 @@
     return self;
 }
 
+-(NSString *)identifier{
+    return self.sprite.name;
+}
 
 -(void)configurePhysicsProperties:(SKTexture*)letterTexture{
     
@@ -65,9 +74,9 @@
     
     self.sprite.physicsBody = [SKPhysicsBody bodyWithTexture:letterTexture size:textureSize];
 
-    self.sprite.physicsBody.categoryBitMask = kLetterCategoryBitMask;
-    self.sprite.physicsBody.collisionBitMask = 0;
-    self.sprite.physicsBody.contactTestBitMask = kEnemyCategoryBitMask;
+    self.sprite.physicsBody.categoryBitMask = (UInt32)LETTER;
+    self.sprite.physicsBody.collisionBitMask = -1;
+    self.sprite.physicsBody.contactTestBitMask = (UInt32)ENEMY;
     
 }
 
@@ -75,7 +84,7 @@
     self.sprite.anchorPoint = CGPointMake(0.5, 0.5);
     self.sprite.xScale *= 0.2;
     self.sprite.yScale *= 0.2;
-    self.sprite.name = spriteName;
+    self.sprite.name = [NSString stringWithFormat:@"%lu%@",(unsigned long)self.wordIndex,spriteName];
 }
 
 -(void)addLetterTo:(SKScene*)scene atPosition:(CGPoint)position{
@@ -96,6 +105,8 @@
     
     self.health -= damageAmount;
     
+    [self.delegate didDamageLetter:self];
+    
     switch (self.health) {
         case 3:
             [self runDamageAnimation];
@@ -107,8 +118,8 @@
             [self runDamageAnimation];
             break;
         case 0:
-            [self removeLetterSprite];
-            self.isDead = YES;
+            [self die];
+            
             break;
         default:
             break;
@@ -125,8 +136,13 @@
     [self.sprite runAction:fadeAction];
 }
 
--(void)removeLetterSprite{
+-(void)die{
+    
     [self.sprite removeFromParent];
+    [self.delegate didDestroyLetter:self];
+
 }
+
+
 
 @end

@@ -9,12 +9,14 @@
 #import "GameScene.h"
 #import "RandomPointGenerator.h"
 #import "Constants.h"
+#import "ContactBitMasks.h"
 #import "NSString+StringHelperMethods.h"
 #import "Cloud.h"
 #import "LetterManager.h"
 #import "WordManager.h"
+#import "Spikeman.h"
 
-@interface GameScene()
+@interface GameScene() <SKPhysicsContactDelegate>
 
 @property NSArray<NSValue*>*randomSpawnPoints;
 @property LetterManager* letterManager;
@@ -40,6 +42,15 @@
     [self setupLetterManager];
     [self createClouds];
     [self.letterManager addLettersTo:self];
+    
+    Spikeman* spikeMan1 = [[Spikeman alloc] init];
+    Spikeman* spikeMan2 = [[Spikeman alloc] init];
+    
+    [spikeMan1 addTo:self atPosition:CGPointMake(30.0, -60)];
+    [spikeMan2 addTo:self atPosition:CGPointMake(-40.0, -90)];
+    
+    
+    
 }
 
 -(void)setupWordManager{
@@ -177,6 +188,46 @@
         NSLog(@"Game Over, you win!!!");
         [self setPaused:YES];
     }
+    
+}
+
+/** Conformance to SKPhysicsContact Delegate **/
+
+-(void)didBeginContact:(SKPhysicsContact *)contact{
+    
+    NSLog(@"Processing contact between letter and other object...");
+    
+    SKPhysicsBody* bodyA = contact.bodyA;
+    SKPhysicsBody* bodyB = contact.bodyB;
+    
+    SKPhysicsBody* otherBody;
+    SKPhysicsBody* letterBody;
+    
+    if(bodyA.contactTestBitMask & kLetterCategoryBitMask > 0){
+        otherBody = bodyB;
+        letterBody = bodyA;
+    } else {
+        otherBody = bodyA;
+        letterBody = bodyB;
+    }
+    
+
+    SKSpriteNode*letterSprite = (SKSpriteNode*)[letterBody node];
+    SKSpriteNode*otherSprite = (SKSpriteNode*)[otherBody node];
+    
+    switch (otherBody.categoryBitMask) {
+        case ENEMY:
+            NSLog(@"The enemy has been contacted by the letter....");
+            [self.letterManager handleContactForLetterWith:letterSprite.name andWithContactedObjectName:otherSprite.name];
+            break;
+        default:
+            break;
+    }
+    
+}
+
+-(void)didEndContact:(SKPhysicsContact *)contact{
+    
     
 }
 

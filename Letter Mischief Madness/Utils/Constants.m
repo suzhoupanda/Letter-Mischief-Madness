@@ -24,8 +24,8 @@ int kNumberOfClouds = 9;
 
 /** Collision and Contact Bitmasks **/
 
- UInt32 kLetterCategoryBitMask = 0;
- UInt32 kEnemyCategoryBitMask = 1;
+ const UInt32 kLetterCategoryBitMask = 0;
+ const UInt32 kEnemyCategoryBitMask = 1;
 
 /** Z-Positions **/
 

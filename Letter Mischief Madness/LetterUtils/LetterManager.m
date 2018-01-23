@@ -12,10 +12,12 @@
 #import "RandomPointGenerator.h"
 #import "LetterManager.h"
 #import "Letter.h"
+#import "LetterDelegate.h"
+#import "EnemyType.h"
 
 /** The letter manager spawns the letters for a given target word, adding them to the scene, and randomizes the positions of the letters at regular update intervals **/
 
-@interface LetterManager()
+@interface LetterManager() <LetterDelegate>
 
 @property NSMutableArray<Letter*>* letters;
 @property NSArray<NSValue*>* spawnPoints;
@@ -60,7 +62,10 @@
     for (int charIndex = 0; charIndex < self.targetWord.length; charIndex++) {
         
         char wordChar = [self.targetWord characterAtIndex:charIndex];
+        
         Letter* newLetter = [[Letter alloc] initWithLetter:wordChar];
+        
+        newLetter.delegate = self;
         
         CGPoint randomPos = [self getRandomSpawnPointPosition];
         
@@ -173,5 +178,27 @@
     
     return positionVal.CGPointValue;
 }
+
+
+/** The contacted letter can take different amounts of damage based on the enemy that contacts it **/
+
+-(void)handleContactForLetterWith:(NSString*)letterIdentifier andWithContactedObjectName:(NSString*)contactedObjectName{
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"letter.identifier LIKE %@",letterIdentifier];
+    
+   Letter* contactedLetter = [[self.letters filteredArrayUsingPredicate:predicate] firstObject];
+    
+    [contactedLetter takeDamage:1];
+    
+
+}
+
+/** Conformance to LetterDelgate protocol **/
+
+-(void)didDestroyLetter:(Letter *)letter{
+    
+    [self.letters removeObject:letter];
+}
+
 
 @end

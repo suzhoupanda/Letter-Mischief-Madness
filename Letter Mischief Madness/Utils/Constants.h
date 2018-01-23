@@ -26,7 +26,7 @@ extern int kNumberOfClouds;
 
 extern BOOL kDebugWordManager;
 
-extern UInt32 kLetterCategoryBitMask;
-extern UInt32 kEnemyCategoryBitMask;
+extern const UInt32 kLetterCategoryBitMask;
+extern const UInt32 kEnemyCategoryBitMask;
 
 #endif /* Constants_h */

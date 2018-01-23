@@ -51,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD0E5785201748C9006218CC /* LetterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LetterDelegate.h; sourceTree = "<group>"; };
+		BD0E5786201751FF006218CC /* EnemyType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnemyType.h; sourceTree = "<group>"; };
+		BD0E578720175629006218CC /* ContactBitMasks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactBitMasks.h; sourceTree = "<group>"; };
 		BD28605F2015FC68001E96B0 /* LetterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LetterManager.m; sourceTree = "<group>"; };
 		BD2860612015FC81001E96B0 /* LetterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LetterManager.h; sourceTree = "<group>"; };
 		BD9A106F2015BF6000DBC209 /* Letter Mischief Madness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Letter Mischief Madness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +132,7 @@
 				BDAA12E22015F39D00EE2458 /* Letter.m */,
 				BD28605F2015FC68001E96B0 /* LetterManager.m */,
 				BD2860612015FC81001E96B0 /* LetterManager.h */,
+				BD0E5785201748C9006218CC /* LetterDelegate.h */,
 			);
 			path = LetterUtils;
 			sourceTree = "<group>";
@@ -211,6 +215,7 @@
 				BD9A10B52015CAFE00DBC209 /* ScreenConstants.h */,
 				BD9A10B62015D1F000DBC209 /* NSString+StringHelperMethods.h */,
 				BD9A10B72015D1F000DBC209 /* NSString+StringHelperMethods.m */,
+				BD0E578720175629006218CC /* ContactBitMasks.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 			children = (
 				BDD9A7A52017327300670EF1 /* Spikeman.h */,
 				BDD9A7A6201732A700670EF1 /* Spikeman.m */,
+				BD0E5786201751FF006218CC /* EnemyType.h */,
 			);
 			path = Enemies;
 			sourceTree = "<group>";

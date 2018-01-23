@@ -15,6 +15,7 @@
 @interface Spikeman: NSObject
 
 -(instancetype)init;
+-(void)addTo:(SKScene*)scene atPosition:(CGPoint)position;
 
 @end
 
