@@ -13,6 +13,6 @@ enum{
    PLAYER = 0,
    LETTER = 1,
    ENEMY
-}ContactBitMask;
+};
 
 #endif /* ContactBitMasks_h */

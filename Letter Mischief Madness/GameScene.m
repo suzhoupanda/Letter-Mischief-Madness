@@ -215,6 +215,7 @@
     SKSpriteNode*letterSprite = (SKSpriteNode*)[letterBody node];
     SKSpriteNode*otherSprite = (SKSpriteNode*)[otherBody node];
     
+    
     switch (otherBody.categoryBitMask) {
         case ENEMY:
             NSLog(@"The enemy has been contacted by the letter....");
