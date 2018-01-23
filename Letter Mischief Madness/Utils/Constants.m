@@ -30,6 +30,7 @@ int kNumberOfClouds = 9;
 /** Z-Positions **/
 
  CGFloat kZPositionCloud = 5;
+ CGFloat kZPositionSpikeman = 6;
  CGFloat kZPositionLetter = 3;
 
 

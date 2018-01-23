@@ -27,6 +27,7 @@
 @property (readonly)NSString* identifier;
 @property (weak) id<LetterDelegate>delegate;
 
+-(void)update:(NSTimeInterval)currentTime;
 -(void)takeDamage:(int)damageAmount;
 
 

@@ -63,7 +63,7 @@
         
         char wordChar = [self.targetWord characterAtIndex:charIndex];
         
-        Letter* newLetter = [[Letter alloc] initWithLetter:wordChar];
+        Letter* newLetter = [[Letter alloc] initWithLetter:wordChar andWithWordIndex:charIndex];
         
         newLetter.delegate = self;
         
@@ -76,25 +76,7 @@
     }
 }
 
-/**
-     Possible approaches:
-     Use a delegate
-     Use notifications
-     Use property observers
- 
- **/
 
-/** Runs this function every time in the update function **/
-
--(void)removeDeadLetters{
-    
-   //Use NSPredicate
-    //NSPredicate* predicate = nil;
-    
-   // NSArray<Letter*>* prunedArray = [self.letters filteredArrayUsingPredicate:predicate];
-    
-    //self.letters = prunedArray;
-}
 
 /** Automatically generates all the letters in a word **/
 
@@ -121,6 +103,11 @@
     
     self.frameCount += currentTime - self.lastUpdateTime;
     
+    //Update all of the letters
+    for (Letter*letter in self.letters) {
+        
+        [letter update:currentTime];
+    }
 
     if(self.frameCount > self.repositionInterval){
         
@@ -184,9 +171,15 @@
 
 -(void)handleContactForLetterWith:(NSString*)letterIdentifier andWithContactedObjectName:(NSString*)contactedObjectName{
     
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"letter.identifier LIKE %@",letterIdentifier];
+    NSLog(@"The letter identifiers is: %@",letterIdentifier);
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"identifier LIKE %@",letterIdentifier];
     
    Letter* contactedLetter = [[self.letters filteredArrayUsingPredicate:predicate] firstObject];
+    
+    NSString* contactedLetterInfo = [contactedLetter debugDescription];
+    
+    NSLog(@"Contacted letter info: %@",contactedLetterInfo);
     
     [contactedLetter takeDamage:1];
     

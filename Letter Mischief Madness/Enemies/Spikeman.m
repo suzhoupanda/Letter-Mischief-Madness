@@ -42,6 +42,9 @@
 
 -(void)configureNode{
     self.sprite.name = @"spikeman";
+    self.sprite.zPosition = kZPositionSpikeman;
+    self.sprite.xScale *= 0.5;
+    self.sprite.yScale *= 0.5;
 }
 
 -(void)configurePhysicsPropertiesWith:(SKTexture*)texture{
@@ -50,9 +53,11 @@
     
     self.sprite.physicsBody = [SKPhysicsBody bodyWithTexture:texture size:textureSize];
     
-    self.sprite.physicsBody.categoryBitMask = ENEMY;
-    self.sprite.physicsBody.collisionBitMask = -1;
-    self.sprite.physicsBody.contactTestBitMask = LETTER;
+    self.sprite.physicsBody.affectedByGravity = NO;
+    self.sprite.physicsBody.allowsRotation = NO;
+    self.sprite.physicsBody.categoryBitMask = (UInt32)ENEMY;
+    self.sprite.physicsBody.collisionBitMask = 0;
+    self.sprite.physicsBody.contactTestBitMask = (UInt32)LETTER;
     
 }
 
@@ -75,9 +80,9 @@
     [self.sprite runAction:rotateAnimation withKey:@"rotateAnimation"];
     
     
-    SKAction* moveLeftAction = [SKAction moveByX:-50.0 y:0.00 duration:0.50];
-    SKAction* moveUpAction = [SKAction moveByX:0.00 y:50.0 duration:0.50];
-    SKAction* moveDownRightAction = [SKAction moveByX:50.0 y:-50 duration:0.50];
+    SKAction* moveLeftAction = [SKAction moveByX:-10.0 y:0.00 duration:1.50];
+    SKAction* moveUpAction = [SKAction moveByX:0.00 y:10.0 duration:1.50];
+    SKAction* moveDownRightAction = [SKAction moveByX:10.0 y:-10 duration:1.50];
     
     SKAction* moveActionSequence = [SKAction sequence:@[
         moveLeftAction,moveUpAction,moveDownRightAction

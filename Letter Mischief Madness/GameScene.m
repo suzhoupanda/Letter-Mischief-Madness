@@ -46,8 +46,8 @@
     Spikeman* spikeMan1 = [[Spikeman alloc] init];
     Spikeman* spikeMan2 = [[Spikeman alloc] init];
     
-    [spikeMan1 addTo:self atPosition:CGPointMake(30.0, -60)];
-    [spikeMan2 addTo:self atPosition:CGPointMake(-40.0, -90)];
+    [spikeMan1 addTo:self atPosition:CGPointMake(10.0, -30)];
+    [spikeMan2 addTo:self atPosition:CGPointMake(-10.0, -40)];
     
     
     
@@ -70,6 +70,7 @@
 }
 
 -(void)configureScene{
+    self.physicsWorld.contactDelegate = self;
     self.anchorPoint = CGPointMake(0.5, 0.5);
 }
 
@@ -78,7 +79,7 @@
     
     
     for (NSValue*pointVal in self.randomSpawnPoints) {
-        NSLog(@"Creating cloud at another random point...");
+        
         Cloud* randomCloud = [Cloud getRandomCloud];
         [randomCloud addSpriteTo:self atPosition:pointVal.CGPointValue];
     }
@@ -203,12 +204,17 @@
     SKPhysicsBody* otherBody;
     SKPhysicsBody* letterBody;
     
-    if(bodyA.contactTestBitMask & kLetterCategoryBitMask > 0){
+    if((bodyA.categoryBitMask & ((UInt32)LETTER)) > 0){
+        NSLog(@"The otherbody is bodyB, the letter is bodyA");
         otherBody = bodyB;
         letterBody = bodyA;
+        
     } else {
+        NSLog(@"The otherbody is bodyA, the letter is bodyB");
         otherBody = bodyA;
         letterBody = bodyB;
+       
+       
     }
     
 
@@ -217,11 +223,12 @@
     
     
     switch (otherBody.categoryBitMask) {
-        case ENEMY:
+        case (UInt32)ENEMY:
             NSLog(@"The enemy has been contacted by the letter....");
             [self.letterManager handleContactForLetterWith:letterSprite.name andWithContactedObjectName:otherSprite.name];
             break;
         default:
+            NSLog(@"No contact logic implemented");
             break;
     }
     
