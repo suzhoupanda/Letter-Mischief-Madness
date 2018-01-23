@@ -18,6 +18,9 @@
 -(instancetype)initWithLetter:(char)letter;
 -(void)addLetterTo:(SKScene*)scene atPosition:(CGPoint)position;
 -(void)setLetterPositionTo:(CGPoint)position;
+
+@property BOOL isDead;
+
 @end
 
 #endif /* LetterSprite_h */

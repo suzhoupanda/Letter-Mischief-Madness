@@ -71,9 +71,42 @@
     }
 }
 
+/**
+     Possible approaches:
+     Use a delegate
+     Use notifications
+     Use property observers
+ 
+ **/
+
+/** Runs this function every time in the update function **/
+
+-(void)removeDeadLetters{
+    
+   //Use NSPredicate
+    //NSPredicate* predicate = nil;
+    
+   // NSArray<Letter*>* prunedArray = [self.letters filteredArrayUsingPredicate:predicate];
+    
+    //self.letters = prunedArray;
+}
+
+/** Automatically generates all the letters in a word **/
+
+-(void)regenerateDeadLetters{
+    
+    for(int charIndex = 0; charIndex < self.targetWord.length; charIndex++){
+        char wordChar = [self.targetWord characterAtIndex:charIndex];
+        Letter* letter = [[Letter alloc] initWithLetter:wordChar];
+        
+        if(![self.letters containsObject:letter]){
+            [self.letters addObject:letter];
+        }
+    }
+}
+
 -(void)update:(NSTimeInterval)currentTime{
     
-    NSLog(@"Upating letter manager...");
     
     
     if(self.frameCount == currentTime){
@@ -83,7 +116,6 @@
     
     self.frameCount += currentTime - self.lastUpdateTime;
     
-    NSLog(@"Frame count is: %f",self.frameCount);
 
     if(self.frameCount > self.repositionInterval){
         

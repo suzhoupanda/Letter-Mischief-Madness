@@ -17,10 +17,22 @@
  CGFloat kDebugSpawnArea_LowerY = -300.0;
  CGFloat kDebugSpawnArea_LowerX = -250.0;
  CGFloat kDebugSpawnArea_UpperX = 250.0;
+
  int kNumberOfOnScreenDebugPoints = 5;
 int kNumberOfClouds = 9;
 
+
+/** Collision and Contact Bitmasks **/
+
+ UInt32 kLetterCategoryBitMask = 0;
+ UInt32 kEnemyCategoryBitMask = 1;
+
+/** Z-Positions **/
+
  CGFloat kZPositionCloud = 5;
  CGFloat kZPositionLetter = 3;
+
+
+ BOOL kDebugWordManager = YES;
 
 

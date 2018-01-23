@@ -12,11 +12,14 @@
 #import "NSString+StringHelperMethods.h"
 #import "Cloud.h"
 #import "LetterManager.h"
+#import "WordManager.h"
+
 @interface GameScene()
 
 @property NSArray<NSValue*>*randomSpawnPoints;
 @property LetterManager* letterManager;
 @property NSString* targetWord;
+@property WordManager* wordManager;
 
 @end
 
@@ -32,10 +35,16 @@
     [self setupBackground];
     [self setupBGMusic];
     [self acquireTargetWord];
+    [self setupWordManager];
     [self setupSpawnPoints];
     [self setupLetterManager];
     [self createClouds];
     [self.letterManager addLettersTo:self];
+}
+
+-(void)setupWordManager{
+    
+    self.wordManager = [[WordManager alloc] initWithTargetWord:self.targetWord];
 }
 
 -(void)setupLetterManager{
@@ -123,7 +132,25 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
-    
+
+    for (UITouch *t in touches) {
+        
+        
+        CGPoint touchPoint = [t locationInNode:self];
+        
+        SKSpriteNode* node = (SKSpriteNode*)[self nodeAtPoint:touchPoint];
+        
+        if(node && [node.name containsString:@"letter"]){
+            NSString* nodeName = node.name;
+            
+            char lastChar = [nodeName characterAtIndex:nodeName.length-1];
+            NSLog(@"You touched the letter %c", lastChar);
+            [self.wordManager evaluateNextLetter:lastChar];
+            
+        }
+        
+    }
+
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
 }
@@ -142,6 +169,15 @@
         [self.letterManager update:currentTime];
 
     }
+}
+
+-(void)didSimulatePhysics{
+    
+    if([self.wordManager hasCompletedTargetWord]){
+        NSLog(@"Game Over, you win!!!");
+        [self setPaused:YES];
+    }
+    
 }
 
 @end

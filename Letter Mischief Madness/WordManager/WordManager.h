@@ -17,7 +17,7 @@
 @interface WordManager: NSObject
 
 -(instancetype)initWithTargetWord:(NSString*)targetWord;
--(void)evaluateNextLetter:(NSString*)nextLetter;
+-(void)evaluateNextLetter:(char)nextLetter;
 -(BOOL)hasCompletedTargetWord;
 
 @end
