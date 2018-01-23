@@ -162,13 +162,11 @@
 				BD28605E2015FC4F001E96B0 /* LetterUtils */,
 				BDAA12D72015F04400EE2458 /* music_loops */,
 				BDAA12CE2015EC3C00EE2458 /* SpawnPointManager.h */,
-				BDAA12CF2015ED5900EE2458 /* stars.sks */,
 				BDD9A7A12017297100670EF1 /* WordManager */,
-				BDAA12D32015EDC900EE2458 /* smoke.sks */,
-				BDAA12D52015EDDB00EE2458 /* fire.sks */,
 				BDD9A7A42017326600670EF1 /* Enemies */,
 				BD9A10792015BF6000DBC209 /* GameScene.h */,
 				BD9A107A2015BF6000DBC209 /* GameScene.m */,
+				BDD9A7A9201740C700670EF1 /* particle_emitters */,
 				BD9A107C2015BF6000DBC209 /* GameViewController.h */,
 				BD9A107D2015BF6000DBC209 /* GameViewController.m */,
 				BD9A107F2015BF6100DBC209 /* Main.storyboard */,
@@ -242,6 +240,16 @@
 				BDD9A7A6201732A700670EF1 /* Spikeman.m */,
 			);
 			path = Enemies;
+			sourceTree = "<group>";
+		};
+		BDD9A7A9201740C700670EF1 /* particle_emitters */ = {
+			isa = PBXGroup;
+			children = (
+				BDAA12D32015EDC900EE2458 /* smoke.sks */,
+				BDAA12CF2015ED5900EE2458 /* stars.sks */,
+				BDAA12D52015EDDB00EE2458 /* fire.sks */,
+			);
+			path = particle_emitters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
