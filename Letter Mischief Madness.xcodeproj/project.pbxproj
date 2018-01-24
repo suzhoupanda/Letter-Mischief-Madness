@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BD2860602015FC68001E96B0 /* LetterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD28605F2015FC68001E96B0 /* LetterManager.m */; };
+		BD2CCF8620184EF500D852D6 /* TDGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2CCF8520184EF500D852D6 /* TDGameScene.m */; };
+		BD2CCF8920184FE000D852D6 /* TopDownPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2CCF8820184FE000D852D6 /* TopDownPlane.m */; };
 		BD9A10742015BF6000DBC209 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10732015BF6000DBC209 /* AppDelegate.m */; };
 		BD9A107B2015BF6000DBC209 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A107A2015BF6000DBC209 /* GameScene.m */; };
 		BD9A107E2015BF6000DBC209 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A107D2015BF6000DBC209 /* GameViewController.m */; };
@@ -56,6 +58,10 @@
 		BD0E578720175629006218CC /* ContactBitMasks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactBitMasks.h; sourceTree = "<group>"; };
 		BD28605F2015FC68001E96B0 /* LetterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LetterManager.m; sourceTree = "<group>"; };
 		BD2860612015FC81001E96B0 /* LetterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LetterManager.h; sourceTree = "<group>"; };
+		BD2CCF8420184EE400D852D6 /* TDGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDGameScene.h; sourceTree = "<group>"; };
+		BD2CCF8520184EF500D852D6 /* TDGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDGameScene.m; sourceTree = "<group>"; };
+		BD2CCF8820184FE000D852D6 /* TopDownPlane.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopDownPlane.m; sourceTree = "<group>"; };
+		BD2CCF8A20184FEA00D852D6 /* TopDownPlane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopDownPlane.h; sourceTree = "<group>"; };
 		BD9A106F2015BF6000DBC209 /* Letter Mischief Madness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Letter Mischief Madness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9A10722015BF6000DBC209 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD9A10732015BF6000DBC209 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -137,6 +143,26 @@
 			path = LetterUtils;
 			sourceTree = "<group>";
 		};
+		BD2CCF8320184EC100D852D6 /* GameScenes */ = {
+			isa = PBXGroup;
+			children = (
+				BD9A10792015BF6000DBC209 /* GameScene.h */,
+				BD9A107A2015BF6000DBC209 /* GameScene.m */,
+				BD2CCF8420184EE400D852D6 /* TDGameScene.h */,
+				BD2CCF8520184EF500D852D6 /* TDGameScene.m */,
+			);
+			path = GameScenes;
+			sourceTree = "<group>";
+		};
+		BD2CCF8720184FCF00D852D6 /* TopDownPlane */ = {
+			isa = PBXGroup;
+			children = (
+				BD2CCF8820184FE000D852D6 /* TopDownPlane.m */,
+				BD2CCF8A20184FEA00D852D6 /* TopDownPlane.h */,
+			);
+			path = TopDownPlane;
+			sourceTree = "<group>";
+		};
 		BD9A10662015BF6000DBC209 = {
 			isa = PBXGroup;
 			children = (
@@ -168,16 +194,15 @@
 				BDAA12CE2015EC3C00EE2458 /* SpawnPointManager.h */,
 				BDD9A7A12017297100670EF1 /* WordManager */,
 				BDD9A7A42017326600670EF1 /* Enemies */,
-				BD9A10792015BF6000DBC209 /* GameScene.h */,
-				BD9A107A2015BF6000DBC209 /* GameScene.m */,
 				BDD9A7A9201740C700670EF1 /* particle_emitters */,
-				BD9A107C2015BF6000DBC209 /* GameViewController.h */,
-				BD9A107D2015BF6000DBC209 /* GameViewController.m */,
+				BD2CCF8720184FCF00D852D6 /* TopDownPlane */,
+				BD2CCF8320184EC100D852D6 /* GameScenes */,
 				BD9A107F2015BF6100DBC209 /* Main.storyboard */,
 				BD9A10822015BF6100DBC209 /* Assets.xcassets */,
 				BD9A10842015BF6100DBC209 /* LaunchScreen.storyboard */,
 				BD9A10872015BF6100DBC209 /* Info.plist */,
 				BD9A10882015BF6100DBC209 /* main.m */,
+				BD9D44D520186713001D9745 /* GameViewControllers */,
 				BD9A10AB2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.h */,
 				BD9A10AC2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m */,
 				BDAA12CB2015E28100EE2458 /* Cloud.h */,
@@ -218,6 +243,15 @@
 				BD0E578720175629006218CC /* ContactBitMasks.h */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BD9D44D520186713001D9745 /* GameViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BD9A107C2015BF6000DBC209 /* GameViewController.h */,
+				BD9A107D2015BF6000DBC209 /* GameViewController.m */,
+			);
+			path = GameViewControllers;
 			sourceTree = "<group>";
 		};
 		BDAA12D72015F04400EE2458 /* music_loops */ = {
@@ -399,12 +433,14 @@
 			files = (
 				BD9A107B2015BF6000DBC209 /* GameScene.m in Sources */,
 				BD9A107E2015BF6000DBC209 /* GameViewController.m in Sources */,
+				BD2CCF8620184EF500D852D6 /* TDGameScene.m in Sources */,
 				BD9A10892015BF6100DBC209 /* main.m in Sources */,
 				BDD9A7A32017299200670EF1 /* WordManager.m in Sources */,
 				BD9A10742015BF6000DBC209 /* AppDelegate.m in Sources */,
 				BD9A10B42015C85200DBC209 /* RandomPointGenerator.m in Sources */,
 				BD9A10AD2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m in Sources */,
 				BD2860602015FC68001E96B0 /* LetterManager.m in Sources */,
+				BD2CCF8920184FE000D852D6 /* TopDownPlane.m in Sources */,
 				BDD9A7A7201732A700670EF1 /* Spikeman.m in Sources */,
 				BDAA12CD2015E38100EE2458 /* Cloud.m in Sources */,
 				BD9A10B02015C2A700DBC209 /* Constants.m in Sources */,
