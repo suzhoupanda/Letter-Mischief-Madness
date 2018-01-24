@@ -23,6 +23,9 @@
 		BD9A10B02015C2A700DBC209 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10AF2015C2A700DBC209 /* Constants.m */; };
 		BD9A10B42015C85200DBC209 /* RandomPointGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10B32015C85200DBC209 /* RandomPointGenerator.m */; };
 		BD9A10B82015D1F000DBC209 /* NSString+StringHelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9A10B72015D1F000DBC209 /* NSString+StringHelperMethods.m */; };
+		BD9D44D920188973001D9745 /* MissileLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9D44D820188973001D9745 /* MissileLauncher.m */; };
+		BD9D44DB20188F48001D9745 /* TopDownBGTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD9D44DA20188F48001D9745 /* TopDownBGTiles.sks */; };
+		BD9D44DD20189173001D9745 /* TopDownBG1.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD9D44DC20189173001D9745 /* TopDownBG1.sks */; };
 		BD9E898A2016134F00A0EC06 /* Plan.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BD9E89892016134F00A0EC06 /* Plan.rtf */; };
 		BDAA12CD2015E38100EE2458 /* Cloud.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAA12CC2015E38100EE2458 /* Cloud.m */; };
 		BDAA12D02015ED5900EE2458 /* stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12CF2015ED5900EE2458 /* stars.sks */; };
@@ -91,6 +94,11 @@
 		BD9A10B72015D1F000DBC209 /* NSString+StringHelperMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringHelperMethods.m"; sourceTree = "<group>"; };
 		BD9A10B92015DBBA00DBC209 /* WordManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordManager.h; sourceTree = "<group>"; };
 		BD9A10BA2015DD8900DBC209 /* Letter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Letter.h; sourceTree = "<group>"; };
+		BD9D44D72018895E001D9745 /* MissileLauncher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MissileLauncher.h; sourceTree = "<group>"; };
+		BD9D44D820188973001D9745 /* MissileLauncher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MissileLauncher.m; sourceTree = "<group>"; };
+		BD9D44DA20188F48001D9745 /* TopDownBGTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TopDownBGTiles.sks; sourceTree = "<group>"; };
+		BD9D44DC20189173001D9745 /* TopDownBG1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TopDownBG1.sks; sourceTree = "<group>"; };
+		BD9D44DE2018A478001D9745 /* WordManagerDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordManagerDataSource.h; sourceTree = "<group>"; };
 		BD9E89892016134F00A0EC06 /* Plan.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Plan.rtf; sourceTree = "<group>"; };
 		BDAA12CB2015E28100EE2458 /* Cloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cloud.h; sourceTree = "<group>"; };
 		BDAA12CC2015E38100EE2458 /* Cloud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cloud.m; sourceTree = "<group>"; };
@@ -192,6 +200,7 @@
 				BD28605E2015FC4F001E96B0 /* LetterUtils */,
 				BDAA12D72015F04400EE2458 /* music_loops */,
 				BDAA12CE2015EC3C00EE2458 /* SpawnPointManager.h */,
+				BD9D44D620188942001D9745 /* MissileLaunchers */,
 				BDD9A7A12017297100670EF1 /* WordManager */,
 				BDD9A7A42017326600670EF1 /* Enemies */,
 				BDD9A7A9201740C700670EF1 /* particle_emitters */,
@@ -205,6 +214,8 @@
 				BD9D44D520186713001D9745 /* GameViewControllers */,
 				BD9A10AB2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.h */,
 				BD9A10AC2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m */,
+				BD9D44DA20188F48001D9745 /* TopDownBGTiles.sks */,
+				BD9D44DC20189173001D9745 /* TopDownBG1.sks */,
 				BDAA12CB2015E28100EE2458 /* Cloud.h */,
 				BDAA12CC2015E38100EE2458 /* Cloud.m */,
 				BD9E89892016134F00A0EC06 /* Plan.rtf */,
@@ -254,6 +265,15 @@
 			path = GameViewControllers;
 			sourceTree = "<group>";
 		};
+		BD9D44D620188942001D9745 /* MissileLaunchers */ = {
+			isa = PBXGroup;
+			children = (
+				BD9D44D72018895E001D9745 /* MissileLauncher.h */,
+				BD9D44D820188973001D9745 /* MissileLauncher.m */,
+			);
+			path = MissileLaunchers;
+			sourceTree = "<group>";
+		};
 		BDAA12D72015F04400EE2458 /* music_loops */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +288,7 @@
 			children = (
 				BD9A10B92015DBBA00DBC209 /* WordManager.h */,
 				BDD9A7A22017299200670EF1 /* WordManager.m */,
+				BD9D44DE2018A478001D9745 /* WordManagerDataSource.h */,
 			);
 			path = WordManager;
 			sourceTree = "<group>";
@@ -401,9 +422,11 @@
 				BD9A10812015BF6100DBC209 /* Main.storyboard in Resources */,
 				BDAA12D42015EDC900EE2458 /* smoke.sks in Resources */,
 				BDAA12E02015F32F00EE2458 /* Mishief-Stroll.mp3 in Resources */,
+				BD9D44DD20189173001D9745 /* TopDownBG1.sks in Resources */,
 				BDAA12E12015F33200EE2458 /* Mission-Plausible.mp3 in Resources */,
 				BDAA12D02015ED5900EE2458 /* stars.sks in Resources */,
 				BD9A10832015BF6100DBC209 /* Assets.xcassets in Resources */,
+				BD9D44DB20188F48001D9745 /* TopDownBGTiles.sks in Resources */,
 				BD9A10862015BF6100DBC209 /* LaunchScreen.storyboard in Resources */,
 				BDAA12D62015EDDB00EE2458 /* fire.sks in Resources */,
 				BD9E898A2016134F00A0EC06 /* Plan.rtf in Resources */,
@@ -435,6 +458,7 @@
 				BD9A107E2015BF6000DBC209 /* GameViewController.m in Sources */,
 				BD2CCF8620184EF500D852D6 /* TDGameScene.m in Sources */,
 				BD9A10892015BF6100DBC209 /* main.m in Sources */,
+				BD9D44D920188973001D9745 /* MissileLauncher.m in Sources */,
 				BDD9A7A32017299200670EF1 /* WordManager.m in Sources */,
 				BD9A10742015BF6000DBC209 /* AppDelegate.m in Sources */,
 				BD9A10B42015C85200DBC209 /* RandomPointGenerator.m in Sources */,

@@ -22,8 +22,10 @@ typedef enum{
 
 -(instancetype)initWithPlaneColor:(PlaneColor)planeColor;
 -(void)addPlaneTo:(SKScene*)scene atPosition:(CGPoint)position;
+-(void)setPlaneVerticalSpeed:(CGFloat)speed;
 
 -(void)update;
+
 -(void)tapRight;
 -(void)tapLeft;
 

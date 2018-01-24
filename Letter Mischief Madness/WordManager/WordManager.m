@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "WordManager.h"
+#import "Letter.h"
 #import "Constants.h"
 
 @interface WordManager()
 
 @property NSString* targetWord;
 @property NSString* wordInProgress;
+
+@property (readwrite) BOOL isAutomaticallyLooped;
+@property id<WordManagerDataSource> dataSource;
+
+@property (readonly) int pointsForTargetWord;
+@property int numberOfTargetWordsCompleted;
 
 @end
 
@@ -27,6 +34,26 @@
         
         self.targetWord = targetWord;
         self.wordInProgress = [[NSString alloc] init];
+        self.isAutomaticallyLooped = NO;
+        self.numberOfTargetWordsCompleted = 0;
+        
+    }
+    
+    return self;
+}
+
+-(instancetype)initWith:(id<WordManagerDataSource>)targetWordDataSource{
+    
+    self = [super init];
+    
+    if(self){
+        
+        self.dataSource = targetWordDataSource;
+        self.targetWord = [self.dataSource getInitialTargetWord];
+        self.wordInProgress = [[NSString alloc] init];
+        self.isAutomaticallyLooped = YES;
+        self.numberOfTargetWordsCompleted = 0;
+        
     }
     
     return self;
@@ -37,12 +64,28 @@
     
     NSUInteger currentWordLength = self.wordInProgress.length;
     
-    if(currentWordLength >= self.targetWord.length){
+    if(!self.isAutomaticallyLooped){
+        if(currentWordLength >= self.targetWord.length){
 
-        NSLog(@"The word in progress has already equaled or exceeded the length of the target word;");
-        return;
-    }
+        
+            NSLog(@"The word in progress has already equaled or exceeded the length of the target word;");
+            self.numberOfTargetWordsCompleted = 1;
+            return;
+        }
     
+    } else {
+        if(self.hasCompletedTargetWord){
+            
+            self.totalPoints += self.pointsForTargetWord;
+            self.numberOfTargetWordsCompleted += 1;
+            [self acquireNextTargetWord];
+            self.wordInProgress = [[NSString alloc] init];
+
+        } else {
+            
+            self.wordInProgress = [[NSString alloc] init];
+        }
+    }
     char nextTargetLetter = [self.targetWord characterAtIndex:currentWordLength];
     
     /**  If the next letter touched is the same as the next letter in the target word, add it to the cached word in progress **/
@@ -73,6 +116,34 @@
     }
     
     return NO;
+}
+
+-(int)pointsForTargetWord{
+    
+    int totalPoints = 0;
+    
+    for (NSUInteger charIndex = 0; charIndex < self.wordInProgress.length; charIndex++) {
+        
+        char wordChar = [self.targetWord characterAtIndex:charIndex];
+        int pointsForChar = [Letter pointsForLetter:wordChar];
+        totalPoints += pointsForChar;
+        
+    }
+    
+    return totalPoints;
+}
+
+/** **/
+-(void)acquireNextTargetWord{
+    
+    if([self.dataSource respondsToSelector:@selector(hasAcquiredAllTargetWords)] && [self.dataSource hasAcquiredAllTargetWords]){
+        
+        NSLog(@"All target words have been acquired...");
+        
+        /** Implement custom logic for cases where special rules apply if all the words provided by a data source have been provided  **/
+    }
+    
+    self.targetWord = [self.dataSource getNextTargetWord];
 }
 
 -(void) showDebugMessageWith:(NSString*)text{

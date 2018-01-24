@@ -33,6 +33,9 @@ int kNumberOfClouds = 9;
  CGFloat kZPositionSpikeman = 6;
  CGFloat kZPositionLetter = 3;
 
+ CGFloat kZPositionTopDownPlane = 3;
+ CGFloat kZPositionMissileLauncher = 3;
+
 
  BOOL kDebugWordManager = YES;
 

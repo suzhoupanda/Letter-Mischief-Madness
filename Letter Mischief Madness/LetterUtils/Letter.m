@@ -18,6 +18,7 @@
 @property SKSpriteNode* sprite;
 @property int health;
 @property NSUInteger wordIndex;
+@property char letterChar;
 
 @property BOOL isRecovering;
 @property NSTimeInterval recoveryInterval;
@@ -53,6 +54,7 @@ const static double recoveryTime = 0.60;
         
         letter = toupper(letter);
         
+        self.letterChar = letter;
         self.health = startingHealth;
         self.wordIndex = wordIndex;
         self.isRecovering = NO;
@@ -164,6 +166,69 @@ const static double recoveryTime = 0.60;
 
 }
 
++(int)pointsForLetter:(char)wordChar{
+    
+    switch (wordChar) {
+        case 'A':
+            return 1;
+        case 'B':
+            return 3;
+        case 'C':
+            return 3;
+        case 'D':
+            return 2;
+        case 'E':
+            return 1;
+        case 'F':
+            return 4;
+        case 'G':
+            return 2;
+        case 'H':
+            return 4;
+        case 'I':
+            return 1;
+        case 'J':
+            return 5;
+        case 'K':
+            return 8;
+        case 'L':
+            return 1;
+        case 'M':
+            return 3;
+        case 'N':
+            return 1;
+        case 'O':
+            return 1;
+        case 'P':
+            return 3;
+        case 'Q':
+            return 1;
+        case 'R':
+            return 1;
+        case 'S':
+            return 1;
+        case 'T':
+            return 1;
+        case 'U':
+            return 1;
+        case 'V':
+            return 4;
+        case 'W':
+            return 4;
+        case 'X':
+            return 8;
+        case 'Y':
+            return 4;
+        case 'Z':
+            return 10;
+        default:
+            return 1;
+    }
+}
+
+-(int)pointValue{
+    return [Letter pointsForLetter:self.letterChar];
+}
 
 -(void)update:(NSTimeInterval)currentTime{
     

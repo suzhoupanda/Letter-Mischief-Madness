@@ -85,6 +85,13 @@ static void *IsOutsideBoundaryContext = &IsOutsideBoundaryContext;
 }
 
 
+-(void)setPlaneVerticalSpeed:(CGFloat)speed{
+    CGVector speedVector = CGVectorMake(0.0, speed);
+    
+    [self.sprite.physicsBody setVelocity:speedVector];
+    
+}
+
 //MARK:     ************* Configure Plan Properties
 
 -(void)configureSpriteNode{

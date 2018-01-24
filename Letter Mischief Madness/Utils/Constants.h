@@ -20,9 +20,13 @@ extern CGFloat kDebugSpawnArea_LowerX;
 extern CGFloat kDebugSpawnArea_UpperX;
 extern int kNumberOfOnScreenDebugPoints;
 
+
 extern CGFloat kZPositionCloud;
 extern CGFloat kZPositionLetter;
 extern CGFloat kZPositionSpikeman;
+
+extern CGFloat kZPositionTopDownPlane;
+extern CGFloat kZPositionMissileLauncher;
 
 
 extern int kNumberOfClouds;

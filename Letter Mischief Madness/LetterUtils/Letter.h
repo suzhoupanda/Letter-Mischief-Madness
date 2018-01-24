@@ -10,6 +10,7 @@
 #define LetterSprite_h
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 #import "LetterDelegate.h"
 
 /** The letter object manages an SKSpriteNode which provides the visual representation for the letter in question; the letter object can also contain additional data, such as the number of points associated with a letter **/
@@ -25,11 +26,13 @@
 
 
 @property (readonly)NSString* identifier;
+@property (readonly)int pointValue;
 @property (weak) id<LetterDelegate>delegate;
 
 -(void)update:(NSTimeInterval)currentTime;
 -(void)takeDamage:(int)damageAmount;
 
++(int)pointsForLetter:(char)wordChar;
 
 @end
 

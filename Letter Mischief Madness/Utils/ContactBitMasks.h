@@ -18,7 +18,9 @@ typedef enum{
 typedef enum{
     TD_PLAYER = 0,
     TD_ENEMY = 1,
-    TD_LETTER
+    TD_LETTER,
+    TD_MISSILE,
+    TD_MISSILE_LAUNCHER_DETECTION_NODE
 }TopDownGameContactBitmasks;
 
 #endif /* ContactBitMasks_h */
