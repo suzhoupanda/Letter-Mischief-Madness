@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "ColliderConfiguration.h"
 
 #ifndef Constants_h
+
 #define Constants_h
+
+
+
 
 extern CGFloat kDebugSpawnAreaWidth;
 extern CGFloat kDebugSpawnAreaHeight;
@@ -18,11 +23,16 @@ extern CGFloat kDebugSpawnArea_UpperY;
 extern CGFloat kDebugSpawnArea_LowerY;
 extern CGFloat kDebugSpawnArea_LowerX;
 extern CGFloat kDebugSpawnArea_UpperX;
+
+
+
 extern int kNumberOfOnScreenDebugPoints;
 
+extern CGFloat kCameraYOffsetTopDownPlane;
 
 extern char kNoLetterCharacterAssociatedWithPhysicsBody;
 
+extern struct ColliderConfiguration kTopDownPlaneColliderConfiguration;
 
 extern CGFloat kZPositionCloud;
 extern CGFloat kZPositionLetter;

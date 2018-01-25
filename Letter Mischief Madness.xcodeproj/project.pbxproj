@@ -31,6 +31,9 @@
 		BDA6E85B2019B0A500E5F42B /* PlatformerBGTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDA6E8592019B0A500E5F42B /* PlatformerBGTiles.sks */; };
 		BDA6E85C2019B0A500E5F42B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA6E85A2019B0A500E5F42B /* Assets.xcassets */; };
 		BDA6E85F2019B18100E5F42B /* PlatformerBG1.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDA6E85E2019B18100E5F42B /* PlatformerBG1.sks */; };
+		BDA6E8642019CE2800E5F42B /* ColliderConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6E8632019CE2800E5F42B /* ColliderConfiguration.m */; };
+		BDA6E8692019D28600E5F42B /* DesertHero.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6E8682019D28600E5F42B /* DesertHero.m */; };
+		BDA6E86C2019D38D00E5F42B /* DesertHero+AnimationsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6E86B2019D38D00E5F42B /* DesertHero+AnimationsGenerator.m */; };
 		BDAA12CD2015E38100EE2458 /* Cloud.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAA12CC2015E38100EE2458 /* Cloud.m */; };
 		BDAA12D02015ED5900EE2458 /* stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12CF2015ED5900EE2458 /* stars.sks */; };
 		BDAA12D42015EDC900EE2458 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12D32015EDC900EE2458 /* smoke.sks */; };
@@ -110,6 +113,13 @@
 		BDA6E8592019B0A500E5F42B /* PlatformerBGTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlatformerBGTiles.sks; sourceTree = "<group>"; };
 		BDA6E85A2019B0A500E5F42B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDA6E85E2019B18100E5F42B /* PlatformerBG1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlatformerBG1.sks; sourceTree = "<group>"; };
+		BDA6E8622019CB0C00E5F42B /* ColliderConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColliderConfiguration.h; sourceTree = "<group>"; };
+		BDA6E8632019CE2800E5F42B /* ColliderConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColliderConfiguration.m; sourceTree = "<group>"; };
+		BDA6E8672019D27A00E5F42B /* DesertHero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesertHero.h; sourceTree = "<group>"; };
+		BDA6E8682019D28600E5F42B /* DesertHero.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesertHero.m; sourceTree = "<group>"; };
+		BDA6E86A2019D38D00E5F42B /* DesertHero+AnimationsGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DesertHero+AnimationsGenerator.h"; sourceTree = "<group>"; };
+		BDA6E86B2019D38D00E5F42B /* DesertHero+AnimationsGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DesertHero+AnimationsGenerator.m"; sourceTree = "<group>"; };
+		BDA6E86D2019D45300E5F42B /* DesertCharacterOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesertCharacterOrientation.h; sourceTree = "<group>"; };
 		BDAA12CB2015E28100EE2458 /* Cloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cloud.h; sourceTree = "<group>"; };
 		BDAA12CC2015E38100EE2458 /* Cloud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cloud.m; sourceTree = "<group>"; };
 		BDAA12CE2015EC3C00EE2458 /* SpawnPointManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpawnPointManager.h; sourceTree = "<group>"; };
@@ -210,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				BD9A10722015BF6000DBC209 /* AppDelegate.h */,
+				BDA6E8652019D24F00E5F42B /* GameCharacters */,
 				BD9A10AE2015C28500DBC209 /* Utils */,
 				BD9A10732015BF6000DBC209 /* AppDelegate.m */,
 				BD28605E2015FC4F001E96B0 /* LetterUtils */,
@@ -217,9 +228,7 @@
 				BDAA12CE2015EC3C00EE2458 /* SpawnPointManager.h */,
 				BD9D44D620188942001D9745 /* MissileLaunchers */,
 				BDD9A7A12017297100670EF1 /* WordManager */,
-				BDD9A7A42017326600670EF1 /* Enemies */,
 				BDD9A7A9201740C700670EF1 /* particle_emitters */,
-				BD2CCF8720184FCF00D852D6 /* TopDownPlane */,
 				BD2CCF8320184EC100D852D6 /* GameScenes */,
 				BD9A107F2015BF6100DBC209 /* Main.storyboard */,
 				BD9A10822015BF6100DBC209 /* Assets.xcassets */,
@@ -267,6 +276,8 @@
 				BD9A10B62015D1F000DBC209 /* NSString+StringHelperMethods.h */,
 				BD9A10B72015D1F000DBC209 /* NSString+StringHelperMethods.m */,
 				BD0E578720175629006218CC /* ContactBitMasks.h */,
+				BDA6E8622019CB0C00E5F42B /* ColliderConfiguration.h */,
+				BDA6E8632019CE2800E5F42B /* ColliderConfiguration.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -306,6 +317,28 @@
 				BDA6E85E2019B18100E5F42B /* PlatformerBG1.sks */,
 			);
 			path = BackgroundScenes;
+			sourceTree = "<group>";
+		};
+		BDA6E8652019D24F00E5F42B /* GameCharacters */ = {
+			isa = PBXGroup;
+			children = (
+				BDA6E8662019D26C00E5F42B /* DesertHero */,
+				BD2CCF8720184FCF00D852D6 /* TopDownPlane */,
+				BDD9A7A42017326600670EF1 /* Enemies */,
+			);
+			path = GameCharacters;
+			sourceTree = "<group>";
+		};
+		BDA6E8662019D26C00E5F42B /* DesertHero */ = {
+			isa = PBXGroup;
+			children = (
+				BDA6E8672019D27A00E5F42B /* DesertHero.h */,
+				BDA6E8682019D28600E5F42B /* DesertHero.m */,
+				BDA6E86A2019D38D00E5F42B /* DesertHero+AnimationsGenerator.h */,
+				BDA6E86B2019D38D00E5F42B /* DesertHero+AnimationsGenerator.m */,
+				BDA6E86D2019D45300E5F42B /* DesertCharacterOrientation.h */,
+			);
+			path = DesertHero;
 			sourceTree = "<group>";
 		};
 		BDAA12D72015F04400EE2458 /* music_loops */ = {
@@ -494,6 +527,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDA6E8692019D28600E5F42B /* DesertHero.m in Sources */,
+				BDA6E8642019CE2800E5F42B /* ColliderConfiguration.m in Sources */,
 				BD9A107B2015BF6000DBC209 /* GameScene.m in Sources */,
 				BD9A107E2015BF6000DBC209 /* GameViewController.m in Sources */,
 				BD2CCF8620184EF500D852D6 /* TDGameScene.m in Sources */,
@@ -510,6 +545,7 @@
 				BD9A10B02015C2A700DBC209 /* Constants.m in Sources */,
 				BDA6E8562019AF3A00E5F42B /* PLGameScene.m in Sources */,
 				BDC33A032019998C004C7ED1 /* TargetWordArray.m in Sources */,
+				BDA6E86C2019D38D00E5F42B /* DesertHero+AnimationsGenerator.m in Sources */,
 				BD9A10B82015D1F000DBC209 /* NSString+StringHelperMethods.m in Sources */,
 				BDAA12E32015F39D00EE2458 /* Letter.m in Sources */,
 			);

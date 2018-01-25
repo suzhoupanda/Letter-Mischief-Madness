@@ -89,9 +89,14 @@ const static double recoveryTime = 0.60;
 
     self.sprite.physicsBody.affectedByGravity = NO;
     self.sprite.physicsBody.allowsRotation = NO;
+    
     self.sprite.physicsBody.categoryBitMask = (UInt32)TD_LETTER;
     self.sprite.physicsBody.collisionBitMask = 0;
     self.sprite.physicsBody.contactTestBitMask = (UInt32)TD_PLAYER;
+    
+    
+    
+
     
 }
 

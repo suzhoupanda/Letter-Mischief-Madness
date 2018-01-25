@@ -11,6 +11,7 @@
 #import "Constants.h"
 
 
+
  CGFloat kDebugSpawnAreaWidth = 600.0;
  CGFloat kDebugSpawnAreaHeight = 600.0;
  CGFloat kDebugSpawnArea_UpperY = 300.0;
@@ -21,8 +22,14 @@
 int kNumberOfOnScreenDebugPoints = 5;
 int kNumberOfClouds = 9;
 
+struct ColliderConfiguration kTopDownPlaneColliderConfiguration;
+
+
+
+
 char kNoLetterCharacterAssociatedWithPhysicsBody = '/';
 
+CGFloat kCameraYOffsetTopDownPlane = 200.0;
 
 /** Collision and Contact Bitmasks **/
 

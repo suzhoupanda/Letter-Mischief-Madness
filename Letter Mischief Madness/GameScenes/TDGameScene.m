@@ -21,6 +21,7 @@
 @interface TDGameScene() <SKPhysicsContactDelegate,WordManagerDelegate>
 
 @property TopDownPlane* player;
+@property SKCameraNode* mainCamera;
 
 @property WordManager* wordManager;
 @property TargetWordArray* debugTargetWordArray;
@@ -40,6 +41,8 @@
     
     [self configureScene];
     
+    [self configureCamera];
+    
     [self configureWordManager];
 
     [self configureBackgroundTiles];
@@ -47,11 +50,11 @@
     [self configurePlayerPlane];
 
     Letter* letterA = [[Letter alloc] initWithLetter:'A'];
-    [letterA addLetterTo:self atPosition:CGPointMake(10.0, 100.0)];
+    [letterA addLetterTo:self atPosition:CGPointMake(10.0, 90.0)];
     
     
-    Letter* letterD = [[Letter alloc] initWithLetter:'D'];
-    [letterD addLetterTo:self atPosition:CGPointMake(-10.0, 150.0)];
+   // Letter* letterD = [[Letter alloc] initWithLetter:'D'];
+   // [letterD addLetterTo:self atPosition:CGPointMake(-20.0, 150.0)];
     
 }
 
@@ -59,6 +62,12 @@
 -(void)configureScene{
     self.anchorPoint = CGPointMake(0.5, 0.5);
     self.physicsWorld.contactDelegate = self;
+}
+
+-(void)configureCamera{
+    
+    self.mainCamera = [[SKCameraNode alloc] init];
+    self.camera = self.mainCamera;
 }
 
 -(void)configurePlayerPlane{
@@ -132,16 +141,25 @@
 }
 
 -(void)didSimulatePhysics{
+    
+    CGPoint playerPosition = self.player.planePosition;
+    
+    self.mainCamera.position = CGPointMake(playerPosition.x, playerPosition.y+kCameraYOffsetTopDownPlane);
+    
     [self checkPlayerPosition];
 }
 
 -(void)checkPlayerPosition{
     
     if(self.player.planePosition.x < -170.00){
+        
         self.player.isOutsideLeftBoundary = YES;
+        
     } else if(self.player.planePosition.x > 170.00){
+        
         self.player.isOutsideRightBoundary = YES;
-    }
+        
+    } 
 }
 
 
@@ -150,7 +168,6 @@
 
 -(void)didBeginContact:(SKPhysicsContact *)contact{
     
-    NSLog(@"A contact between game objects has occurred....");
     
     
     SKPhysicsBody* bodyA = contact.bodyA;
@@ -160,19 +177,24 @@
     SKPhysicsBody* otherBody;
     
     if((bodyA.categoryBitMask & (UInt32)TD_PLAYER) > 0){
+        NSLog(@"The player body is bodyA");
         playerBody = bodyA;
         otherBody = bodyB;
     } else {
+        NSLog(@"The player body is bodyB");
+
         playerBody = bodyB;
         otherBody = bodyA;
     }
     
     
     char letterChar = [Letter getLetterCharacterFromPhysicsBody:otherBody];
+    NSLog(@"The letter character for the physics body is: %c", letterChar);
     
-    switch (otherBody.categoryBitMask) {
+    switch ((UInt32)otherBody.categoryBitMask) {
         case TD_LETTER:
             NSLog(@"Player has contaced a letter");
+            
             if(letterChar != kNoLetterCharacterAssociatedWithPhysicsBody){
                 [self.wordManager evaluateNextLetter:letterChar];
                 
@@ -189,6 +211,7 @@
 -(void)didEndContact:(SKPhysicsContact *)contact{
     
     
+
     
 }
 
