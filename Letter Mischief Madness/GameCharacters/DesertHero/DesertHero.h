@@ -14,6 +14,7 @@
 @interface DesertHero: NSObject
 
 -(instancetype)init;
+-(void)addDesertHeroTo:(SKScene*)scene atPosition:(CGPoint)position;
 
 @end
 

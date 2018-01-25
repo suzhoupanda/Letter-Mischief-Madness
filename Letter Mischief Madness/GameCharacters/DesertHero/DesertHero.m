@@ -76,10 +76,13 @@ static NSString* const kDefaultTexture = @"IdleLeft_000";
         self.currentAnimationType = IDLE;
         self.currentOrientation = LEFT;
         
+        [self configureSpriteNode];
+        
         [self configurePhysicsPropertesWithTexture:texture];
         
         [self configureAnimations];
         
+        [self runAnimationWithAnimationType:IDLE andWithOrientation:LEFT];
         
     }
     
@@ -98,19 +101,30 @@ static NSString* const kDefaultTexture = @"IdleLeft_000";
 
 -(void)configureGestureRecognizersForView:(SKView*)view{
     
-    UIGestureRecognizer* swipeRightRecognizer = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight)];
+    NSLog(@"Configuring gesture recognizers...");
+
+    
+    UISwipeGestureRecognizer* swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight)];
+    
+    swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     
     [view addGestureRecognizer:swipeRightRecognizer];
     
-    UIGestureRecognizer* swipeLeftRecognizer = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft)];
+    UISwipeGestureRecognizer* swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft)];
     
+    swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+
     [view addGestureRecognizer:swipeLeftRecognizer];
     
-    UIGestureRecognizer* swipeDownRecognizer = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeDown)];
+    UISwipeGestureRecognizer* swipeDownRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeDown)];
+    
+    swipeDownRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
     
     [view addGestureRecognizer:swipeDownRecognizer];
     
-    UIGestureRecognizer* swipeUpRecognizer = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp)];
+    UISwipeGestureRecognizer* swipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp)];
+    
+    swipeDownRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
     
     [view addGestureRecognizer:swipeUpRecognizer];
     
@@ -120,26 +134,49 @@ static NSString* const kDefaultTexture = @"IdleLeft_000";
 
 -(void)handleSwipeLeft{
     
+    NSLog(@"User is swiping left...");
+    
     [self runAnimationWithAnimationType:RUN andWithOrientation:LEFT];
     
 }
 -(void)handleSwipeRight{
     
+    NSLog(@"User is swiping right...");
+
     [self runAnimationWithAnimationType:RUN andWithOrientation:RIGHT];
 
 }
 
 -(void)handleSwipeDown{
     
+    NSLog(@"User is swiping down...");
+
 }
 
 -(void)handleSwipeUp{
+    
+    [self runAnimationWithAnimationType:JUMP andWithOrientation:LEFT];
+
+    
+    NSLog(@"User is swiping up...");
+
+}
+
+-(void)configureSpriteNode{
+    
+    NSLog(@"Configuring sprite node...");
+    self.spriteNode.anchorPoint = CGPointMake(0.5, 0.5);
+    self.spriteNode.xScale *= 0.25;
+    self.spriteNode.yScale *= 0.25;
+    
     
     
 }
 
 -(void)configurePhysicsPropertesWithTexture:(SKTexture*)texture{
     
+    NSLog(@"Configuring physics properties for SpriteNode...");
+
     CGSize textureSize = [texture size];
     
     self.spriteNode.physicsBody = [SKPhysicsBody bodyWithTexture:texture size:textureSize];
@@ -152,9 +189,14 @@ static NSString* const kDefaultTexture = @"IdleLeft_000";
     self.spriteNode.physicsBody.categoryBitMask = TD_PLAYER;
     self.spriteNode.physicsBody.collisionBitMask = -1;
     self.spriteNode.physicsBody.contactTestBitMask = TD_LETTER;
+    
+    
 }
 
 -(void)configureAnimations{
+    
+    NSLog(@"Configuring animations...");
+
     
     self.idleLeftAnimation = [self generateIdleAnimation:LEFT];
     self.idleRightAnimation = [self generateIdleAnimation:RIGHT];
