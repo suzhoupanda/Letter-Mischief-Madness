@@ -12,18 +12,19 @@
 typedef enum{
     PLAYER = 0,
     ENEMY = 1,
-    LETTER,
-    MISSILE,
-    MISSILE_LAUNCHER_DETECTION_NODE
+    LETTER = 2,
+    MISSILE = 4,
+    MISSILE_LAUNCHER_DETECTION_NODE = 16
     
 }SpaceShooterContactBitmasks;
 
 typedef enum{
     TD_PLAYER = 0,
     TD_ENEMY = 1,
-    TD_LETTER,
-    TD_MISSILE,
-    TD_MISSILE_LAUNCHER_DETECTION_NODE
+    TD_LETTER = 2,
+    TD_MISSILE = 4,
+    TD_MISSILE_LAUNCHER_DETECTION_NODE = 8,
+    TD_GROUND = 16
 }TopDownGameContactBitmasks;
 
 #endif /* ContactBitMasks_h */

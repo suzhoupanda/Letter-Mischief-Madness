@@ -12,6 +12,7 @@
 #import "DesertHero.h"
 #import "DesertHero+AnimationsGenerator.h"
 #import "AnimationType.h"
+#import "ContactBitMasks.h"
 
 @interface DesertHero()
 
@@ -74,6 +75,12 @@ static NSString* const kDefaultTexture = @"IdleLeft_000";
         
         self.currentAnimationType = IDLE;
         self.currentOrientation = LEFT;
+        
+        [self configurePhysicsPropertesWithTexture:texture];
+        
+        [self configureAnimations];
+        
+        
     }
     
     return self;
@@ -129,6 +136,22 @@ static NSString* const kDefaultTexture = @"IdleLeft_000";
 -(void)handleSwipeUp{
     
     
+}
+
+-(void)configurePhysicsPropertesWithTexture:(SKTexture*)texture{
+    
+    CGSize textureSize = [texture size];
+    
+    self.spriteNode.physicsBody = [SKPhysicsBody bodyWithTexture:texture size:textureSize];
+    
+    self.spriteNode.physicsBody.affectedByGravity = YES;
+    self.spriteNode.physicsBody.allowsRotation = NO;
+    self.spriteNode.physicsBody.linearDamping = 0.00;
+    self.spriteNode.physicsBody.friction = 0.00;
+    
+    self.spriteNode.physicsBody.categoryBitMask = TD_PLAYER;
+    self.spriteNode.physicsBody.collisionBitMask = -1;
+    self.spriteNode.physicsBody.contactTestBitMask = TD_LETTER;
 }
 
 -(void)configureAnimations{

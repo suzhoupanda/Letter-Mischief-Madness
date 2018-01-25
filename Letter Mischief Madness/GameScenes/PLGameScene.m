@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "PLGameScene.h"
+#import "DesertHero.h"
 
 
 @interface PLGameScene()
+
+@property DesertHero* player;
 
 @end
 
@@ -24,6 +27,8 @@
     [self configureScene];
     [self configureBackgroundTiles];
     [self configurePlayer];
+    
+
     
 }
 
@@ -52,7 +57,11 @@
 
 -(void)configurePlayer{
     
+    self.player = [[DesertHero alloc] init];
     
+    CGPoint startingPos = CGPointMake(0.0, 10.0);
+    
+    [self.player addDesertHeroTo:self atPosition:startingPos];
 }
 
 
