@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "TDGameScene.h"
+#import "PLGameScene.h"
 
 @implementation GameViewController
 
@@ -17,7 +18,7 @@
 
     // Load the SKScene from 'GameScene.sks'
     CGSize screenSize = UIScreen.mainScreen.bounds.size;
-    GameScene *scene = [[TDGameScene alloc] initWithSize: screenSize];
+    GameScene *scene = [[PLGameScene alloc] initWithSize: screenSize];
     
     // Set the scale mode to scale to fit the window
     scene.scaleMode = SKSceneScaleModeAspectFill;

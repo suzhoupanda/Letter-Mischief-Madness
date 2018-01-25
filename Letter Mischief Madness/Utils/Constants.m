@@ -18,7 +18,7 @@
  CGFloat kDebugSpawnArea_LowerX = -250.0;
  CGFloat kDebugSpawnArea_UpperX = 250.0;
 
- int kNumberOfOnScreenDebugPoints = 5;
+int kNumberOfOnScreenDebugPoints = 5;
 int kNumberOfClouds = 9;
 
 char kNoLetterCharacterAssociatedWithPhysicsBody = '/';

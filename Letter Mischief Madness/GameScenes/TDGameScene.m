@@ -44,15 +44,7 @@
 
     [self configureBackgroundTiles];
     
-    TopDownPlane* playerPlane = [[TopDownPlane alloc] initWithPlaneColor:RED];
-    self.player = playerPlane;
-    
-    [self.player setPlaneVerticalSpeed:30.0];
-    
-    CGPoint playerInitialPos = CGPointMake(0.0, -200.0);
-    
-    [self.player addPlaneTo:self atPosition:playerInitialPos];
-    
+    [self configurePlayerPlane];
 
     Letter* letterA = [[Letter alloc] initWithLetter:'A'];
     [letterA addLetterTo:self atPosition:CGPointMake(10.0, 100.0)];
@@ -69,6 +61,19 @@
     self.physicsWorld.contactDelegate = self;
 }
 
+-(void)configurePlayerPlane{
+    
+    TopDownPlane* playerPlane = [[TopDownPlane alloc] initWithPlaneColor:RED];
+    self.player = playerPlane;
+    
+    [self.player setPlaneVerticalSpeed:30.0];
+    
+    CGPoint playerInitialPos = CGPointMake(0.0, -200.0);
+    
+    [self.player addPlaneTo:self atPosition:playerInitialPos];
+    
+    
+}
 
 -(void)configureWordManager{
     
@@ -154,7 +159,7 @@
     SKPhysicsBody* playerBody;
     SKPhysicsBody* otherBody;
     
-    if((bodyA.categoryBitMask & TD_PLAYER) > 0){
+    if((bodyA.categoryBitMask & (UInt32)TD_PLAYER) > 0){
         playerBody = bodyA;
         otherBody = bodyB;
     } else {

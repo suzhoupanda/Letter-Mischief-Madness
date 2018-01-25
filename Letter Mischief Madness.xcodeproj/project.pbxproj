@@ -27,6 +27,10 @@
 		BD9D44DB20188F48001D9745 /* TopDownBGTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD9D44DA20188F48001D9745 /* TopDownBGTiles.sks */; };
 		BD9D44DD20189173001D9745 /* TopDownBG1.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD9D44DC20189173001D9745 /* TopDownBG1.sks */; };
 		BD9E898A2016134F00A0EC06 /* Plan.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BD9E89892016134F00A0EC06 /* Plan.rtf */; };
+		BDA6E8562019AF3A00E5F42B /* PLGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6E8552019AF3A00E5F42B /* PLGameScene.m */; };
+		BDA6E85B2019B0A500E5F42B /* PlatformerBGTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDA6E8592019B0A500E5F42B /* PlatformerBGTiles.sks */; };
+		BDA6E85C2019B0A500E5F42B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA6E85A2019B0A500E5F42B /* Assets.xcassets */; };
+		BDA6E85F2019B18100E5F42B /* PlatformerBG1.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDA6E85E2019B18100E5F42B /* PlatformerBG1.sks */; };
 		BDAA12CD2015E38100EE2458 /* Cloud.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAA12CC2015E38100EE2458 /* Cloud.m */; };
 		BDAA12D02015ED5900EE2458 /* stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12CF2015ED5900EE2458 /* stars.sks */; };
 		BDAA12D42015EDC900EE2458 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12D32015EDC900EE2458 /* smoke.sks */; };
@@ -101,6 +105,11 @@
 		BD9D44DC20189173001D9745 /* TopDownBG1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TopDownBG1.sks; sourceTree = "<group>"; };
 		BD9D44DE2018A478001D9745 /* WordManagerDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordManagerDataSource.h; sourceTree = "<group>"; };
 		BD9E89892016134F00A0EC06 /* Plan.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Plan.rtf; sourceTree = "<group>"; };
+		BDA6E8552019AF3A00E5F42B /* PLGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLGameScene.m; sourceTree = "<group>"; };
+		BDA6E8572019AF4B00E5F42B /* PLGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLGameScene.h; sourceTree = "<group>"; };
+		BDA6E8592019B0A500E5F42B /* PlatformerBGTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlatformerBGTiles.sks; sourceTree = "<group>"; };
+		BDA6E85A2019B0A500E5F42B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDA6E85E2019B18100E5F42B /* PlatformerBG1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlatformerBG1.sks; sourceTree = "<group>"; };
 		BDAA12CB2015E28100EE2458 /* Cloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cloud.h; sourceTree = "<group>"; };
 		BDAA12CC2015E38100EE2458 /* Cloud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cloud.m; sourceTree = "<group>"; };
 		BDAA12CE2015EC3C00EE2458 /* SpawnPointManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpawnPointManager.h; sourceTree = "<group>"; };
@@ -162,6 +171,8 @@
 				BD9A107A2015BF6000DBC209 /* GameScene.m */,
 				BD2CCF8420184EE400D852D6 /* TDGameScene.h */,
 				BD2CCF8520184EF500D852D6 /* TDGameScene.m */,
+				BDA6E8552019AF3A00E5F42B /* PLGameScene.m */,
+				BDA6E8572019AF4B00E5F42B /* PLGameScene.h */,
 			);
 			path = GameScenes;
 			sourceTree = "<group>";
@@ -218,10 +229,10 @@
 				BD9D44D520186713001D9745 /* GameViewControllers */,
 				BD9A10AB2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.h */,
 				BD9A10AC2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m */,
-				BD9D44DA20188F48001D9745 /* TopDownBGTiles.sks */,
-				BD9D44DC20189173001D9745 /* TopDownBG1.sks */,
+				BDA6E85D2019B16E00E5F42B /* BackgroundScenes */,
 				BDAA12CB2015E28100EE2458 /* Cloud.h */,
 				BDAA12CC2015E38100EE2458 /* Cloud.m */,
+				BDA6E8582019AFFD00E5F42B /* TileSets */,
 				BD9E89892016134F00A0EC06 /* Plan.rtf */,
 			);
 			path = "Letter Mischief Madness";
@@ -276,6 +287,25 @@
 				BD9D44D820188973001D9745 /* MissileLauncher.m */,
 			);
 			path = MissileLaunchers;
+			sourceTree = "<group>";
+		};
+		BDA6E8582019AFFD00E5F42B /* TileSets */ = {
+			isa = PBXGroup;
+			children = (
+				BD9D44DA20188F48001D9745 /* TopDownBGTiles.sks */,
+				BDA6E8592019B0A500E5F42B /* PlatformerBGTiles.sks */,
+				BDA6E85A2019B0A500E5F42B /* Assets.xcassets */,
+			);
+			path = TileSets;
+			sourceTree = "<group>";
+		};
+		BDA6E85D2019B16E00E5F42B /* BackgroundScenes */ = {
+			isa = PBXGroup;
+			children = (
+				BD9D44DC20189173001D9745 /* TopDownBG1.sks */,
+				BDA6E85E2019B18100E5F42B /* PlatformerBG1.sks */,
+			);
+			path = BackgroundScenes;
 			sourceTree = "<group>";
 		};
 		BDAA12D72015F04400EE2458 /* music_loops */ = {
@@ -426,11 +456,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDA6E85F2019B18100E5F42B /* PlatformerBG1.sks in Resources */,
 				BD9A10812015BF6100DBC209 /* Main.storyboard in Resources */,
 				BDAA12D42015EDC900EE2458 /* smoke.sks in Resources */,
+				BDA6E85B2019B0A500E5F42B /* PlatformerBGTiles.sks in Resources */,
 				BDAA12E02015F32F00EE2458 /* Mishief-Stroll.mp3 in Resources */,
 				BD9D44DD20189173001D9745 /* TopDownBG1.sks in Resources */,
 				BDAA12E12015F33200EE2458 /* Mission-Plausible.mp3 in Resources */,
+				BDA6E85C2019B0A500E5F42B /* Assets.xcassets in Resources */,
 				BDAA12D02015ED5900EE2458 /* stars.sks in Resources */,
 				BD9A10832015BF6100DBC209 /* Assets.xcassets in Resources */,
 				BD9D44DB20188F48001D9745 /* TopDownBGTiles.sks in Resources */,
@@ -475,6 +508,7 @@
 				BDD9A7A7201732A700670EF1 /* Spikeman.m in Sources */,
 				BDAA12CD2015E38100EE2458 /* Cloud.m in Sources */,
 				BD9A10B02015C2A700DBC209 /* Constants.m in Sources */,
+				BDA6E8562019AF3A00E5F42B /* PLGameScene.m in Sources */,
 				BDC33A032019998C004C7ED1 /* TargetWordArray.m in Sources */,
 				BD9A10B82015D1F000DBC209 /* NSString+StringHelperMethods.m in Sources */,
 				BDAA12E32015F39D00EE2458 /* Letter.m in Sources */,

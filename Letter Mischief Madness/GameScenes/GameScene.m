@@ -25,10 +25,7 @@
 
 @end
 
-@implementation GameScene {
-    SKShapeNode *_spinnyNode;
-    SKLabelNode *_label;
-}
+@implementation GameScene
 
 - (void)didMoveToView:(SKView *)view {
     // Setup your scene here
