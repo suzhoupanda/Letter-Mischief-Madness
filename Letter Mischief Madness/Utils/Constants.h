@@ -21,6 +21,9 @@ extern CGFloat kDebugSpawnArea_UpperX;
 extern int kNumberOfOnScreenDebugPoints;
 
 
+extern char kNoLetterCharacterAssociatedWithPhysicsBody;
+
+
 extern CGFloat kZPositionCloud;
 extern CGFloat kZPositionLetter;
 extern CGFloat kZPositionSpikeman;

@@ -33,6 +33,7 @@
 -(void)takeDamage:(int)damageAmount;
 
 +(int)pointsForLetter:(char)wordChar;
++(char)getLetterCharacterFromPhysicsBody:(SKPhysicsBody*)physicsBody;
 
 @end
 

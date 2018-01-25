@@ -21,6 +21,8 @@
  int kNumberOfOnScreenDebugPoints = 5;
 int kNumberOfClouds = 9;
 
+char kNoLetterCharacterAssociatedWithPhysicsBody = '/';
+
 
 /** Collision and Contact Bitmasks **/
 

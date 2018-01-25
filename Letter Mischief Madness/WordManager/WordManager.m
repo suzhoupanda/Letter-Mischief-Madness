@@ -19,7 +19,10 @@
 @property (readwrite) BOOL isAutomaticallyLooped;
 @property id<WordManagerDataSource> dataSource;
 
+
 @property (readonly) int pointsForTargetWord;
+@property (readwrite) int totalPoints;
+
 @property int numberOfTargetWordsCompleted;
 
 @end
@@ -59,6 +62,14 @@
     return self;
 }
 
+-(NSString*)getTargetWord{
+    return self.targetWord;
+}
+
+-(NSString*)getWordInProgress{
+    return self.wordInProgress;
+}
+
 -(void)evaluateNextLetter:(char)nextLetter{
     
     
@@ -69,6 +80,7 @@
 
         
             NSLog(@"The word in progress has already equaled or exceeded the length of the target word;");
+            [self.delegate didCompleteWordInProgress:self.wordInProgress];
             self.numberOfTargetWordsCompleted = 1;
             return;
         }
@@ -76,14 +88,30 @@
     } else {
         if(self.hasCompletedTargetWord){
             
+
             self.totalPoints += self.pointsForTargetWord;
+            [self.delegate didEarnPoints:self.pointsForTargetWord forTargetWord:self.targetWord];
+            
             self.numberOfTargetWordsCompleted += 1;
+            
             [self acquireNextTargetWord];
+            [self.delegate didUpdateTargetWord:self.targetWord];
+            
+            NSString* deletedWordInProgress = self.wordInProgress;
+            
             self.wordInProgress = [[NSString alloc] init];
+            [self.delegate didUpdateWordInProgress:self.wordInProgress];
+            [self.delegate didClearWordInProgress:deletedWordInProgress];
+            
 
         } else {
             
+            NSString* deletedWordInProgress = self.wordInProgress;
+            
             self.wordInProgress = [[NSString alloc] init];
+            
+            [self.delegate didClearWordInProgress:deletedWordInProgress];
+            [self.delegate didUpdateWordInProgress:self.wordInProgress];
         }
     }
     char nextTargetLetter = [self.targetWord characterAtIndex:currentWordLength];
@@ -96,6 +124,8 @@
         
         self.wordInProgress = [NSString stringWithFormat:@"%@%c",self.wordInProgress,nextLetter];
         
+        [self.delegate didUpdateWordInProgress:self.wordInProgress];
+        
         [self showDebugMessageWith:[NSString stringWithFormat:@"The word in progress is: %@",self.wordInProgress]];
         
         /** If the next letter touched is not the same as the next letter in the target word, clear the word in progress; based on game rules, the user must start building the word again **/
@@ -103,8 +133,12 @@
         
         [self showDebugMessageWith:@"The next letter does not equal the next letter in the target word - proceeding to clear the temporary word..."];
 
-        
+        NSString* deletedWordInProgress = self.wordInProgress;
         self.wordInProgress = [[NSString alloc] init];
+        
+        [self.delegate didClearWordInProgress:deletedWordInProgress];
+        [self.delegate didUpdateWordInProgress:self.wordInProgress];
+        
     }
     
 }
@@ -152,5 +186,8 @@
         
     }
 }
+
+
+
 
 @end

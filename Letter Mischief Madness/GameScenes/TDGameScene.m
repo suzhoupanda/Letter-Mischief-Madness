@@ -11,9 +11,20 @@
 #import "TopDownPlane.h"
 #import "Letter.h"
 
-@interface TDGameScene()
+#import "Constants.h"
+#import "ContactBitMasks.h"
+
+#import "WordManager.h"
+#import "TargetWordArray.h"
+#import <ctype.h>
+
+@interface TDGameScene() <SKPhysicsContactDelegate,WordManagerDelegate>
 
 @property TopDownPlane* player;
+
+@property WordManager* wordManager;
+@property TargetWordArray* debugTargetWordArray;
+
 
 @end
 
@@ -22,11 +33,15 @@
 @implementation TDGameScene
 
 
+
+
 -(void)didMoveToView:(SKView *)view{
     
-    self.anchorPoint = CGPointMake(0.5, 0.5);
     
+    [self configureScene];
     
+    [self configureWordManager];
+
     [self configureBackgroundTiles];
     
     TopDownPlane* playerPlane = [[TopDownPlane alloc] initWithPlaneColor:RED];
@@ -48,6 +63,22 @@
     
 }
 
+
+-(void)configureScene{
+    self.anchorPoint = CGPointMake(0.5, 0.5);
+    self.physicsWorld.contactDelegate = self;
+}
+
+
+-(void)configureWordManager{
+    
+    self.debugTargetWordArray = [[TargetWordArray alloc] initDebugArray];
+    
+    self.wordManager = [[WordManager alloc] initWith:self.debugTargetWordArray];
+    
+    self.wordManager.delegate = self;
+    
+}
 
 -(void)configureBackgroundTiles{
     
@@ -106,6 +137,85 @@
     } else if(self.player.planePosition.x > 170.00){
         self.player.isOutsideRightBoundary = YES;
     }
+}
+
+
+
+//MARK: ******* SKPhysicsContactDelegate Methods
+
+-(void)didBeginContact:(SKPhysicsContact *)contact{
+    
+    NSLog(@"A contact between game objects has occurred....");
+    
+    
+    SKPhysicsBody* bodyA = contact.bodyA;
+    SKPhysicsBody* bodyB = contact.bodyB;
+    
+    SKPhysicsBody* playerBody;
+    SKPhysicsBody* otherBody;
+    
+    if((bodyA.categoryBitMask & TD_PLAYER) > 0){
+        playerBody = bodyA;
+        otherBody = bodyB;
+    } else {
+        playerBody = bodyB;
+        otherBody = bodyA;
+    }
+    
+    
+    char letterChar = [Letter getLetterCharacterFromPhysicsBody:otherBody];
+    
+    switch (otherBody.categoryBitMask) {
+        case TD_LETTER:
+            NSLog(@"Player has contaced a letter");
+            if(letterChar != kNoLetterCharacterAssociatedWithPhysicsBody){
+                [self.wordManager evaluateNextLetter:letterChar];
+                
+             
+            }
+            break;
+        case ENEMY:
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)didEndContact:(SKPhysicsContact *)contact{
+    
+    
+    
+}
+
+
+/** Word Manager delegate methods **/
+
+-(void)didUpdateWordInProgress:(NSString *)wordInProgress{
+    NSLog(@"The word in progress has been updated - the current word in progress is now: %@", wordInProgress);
+    
+}
+
+-(void)didClearWordInProgress:(NSString *)deletedWordInProgress{
+    
+    NSLog(@"The word in progress %@ has been cleared.  You must start over in order to spell the target word",deletedWordInProgress);
+}
+
+
+-(void)didEarnPoints:(int)totalPoints forTargetWord:(NSString *)targetWord{
+    
+    NSLog(@"The user has earned %d total points for spelling the target word %@",totalPoints,targetWord);
+    
+}
+
+-(void)didCompleteWordInProgress:(NSString *)completedWordInProgress{
+    
+    NSLog(@"The user has completed the word in progress: %@",completedWordInProgress);
+    
+}
+
+-(void)didUpdateTargetWord:(NSString *)updatedTargetWord{
+    
+    NSLog(@"The target word has been updated.  The new target word is: %@",updatedTargetWord);
 }
 
 

@@ -34,6 +34,7 @@
 		BDAA12E02015F32F00EE2458 /* Mishief-Stroll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12DE2015F32600EE2458 /* Mishief-Stroll.mp3 */; };
 		BDAA12E12015F33200EE2458 /* Mission-Plausible.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12DF2015F32600EE2458 /* Mission-Plausible.mp3 */; };
 		BDAA12E32015F39D00EE2458 /* Letter.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAA12E22015F39D00EE2458 /* Letter.m */; };
+		BDC33A032019998C004C7ED1 /* TargetWordArray.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC33A022019998C004C7ED1 /* TargetWordArray.m */; };
 		BDD9A7A32017299200670EF1 /* WordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9A7A22017299200670EF1 /* WordManager.m */; };
 		BDD9A7A7201732A700670EF1 /* Spikeman.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9A7A6201732A700670EF1 /* Spikeman.m */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,9 @@
 		BDAA12DE2015F32600EE2458 /* Mishief-Stroll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mishief-Stroll.mp3"; sourceTree = "<group>"; };
 		BDAA12DF2015F32600EE2458 /* Mission-Plausible.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mission-Plausible.mp3"; sourceTree = "<group>"; };
 		BDAA12E22015F39D00EE2458 /* Letter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Letter.m; sourceTree = "<group>"; };
+		BDC33A0120199966004C7ED1 /* TargetWordArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TargetWordArray.h; sourceTree = "<group>"; };
+		BDC33A022019998C004C7ED1 /* TargetWordArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TargetWordArray.m; sourceTree = "<group>"; };
+		BDC33A042019A549004C7ED1 /* WordManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordManagerDelegate.h; sourceTree = "<group>"; };
 		BDD9A7A22017299200670EF1 /* WordManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordManager.m; sourceTree = "<group>"; };
 		BDD9A7A52017327300670EF1 /* Spikeman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spikeman.h; sourceTree = "<group>"; };
 		BDD9A7A6201732A700670EF1 /* Spikeman.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spikeman.m; sourceTree = "<group>"; };
@@ -289,6 +293,9 @@
 				BD9A10B92015DBBA00DBC209 /* WordManager.h */,
 				BDD9A7A22017299200670EF1 /* WordManager.m */,
 				BD9D44DE2018A478001D9745 /* WordManagerDataSource.h */,
+				BDC33A0120199966004C7ED1 /* TargetWordArray.h */,
+				BDC33A022019998C004C7ED1 /* TargetWordArray.m */,
+				BDC33A042019A549004C7ED1 /* WordManagerDelegate.h */,
 			);
 			path = WordManager;
 			sourceTree = "<group>";
@@ -468,6 +475,7 @@
 				BDD9A7A7201732A700670EF1 /* Spikeman.m in Sources */,
 				BDAA12CD2015E38100EE2458 /* Cloud.m in Sources */,
 				BD9A10B02015C2A700DBC209 /* Constants.m in Sources */,
+				BDC33A032019998C004C7ED1 /* TargetWordArray.m in Sources */,
 				BD9A10B82015D1F000DBC209 /* NSString+StringHelperMethods.m in Sources */,
 				BDAA12E32015F39D00EE2458 /* Letter.m in Sources */,
 			);

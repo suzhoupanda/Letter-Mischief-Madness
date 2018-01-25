@@ -14,18 +14,23 @@
 
 #import <Foundation/Foundation.h>
 #import "WordManagerDataSource.h"
+#import "WordManagerDelegate.h"
 
 @interface WordManager: NSObject
 
 -(instancetype)initWithTargetWord:(NSString*)targetWord;
 -(instancetype)initWith:(id<WordManagerDataSource>)targetWordDataSource;
 
+-(NSString*)getTargetWord;
+-(NSString*)getWordInProgress;
+
+@property id<WordManagerDelegate> delegate;
 
 -(void)evaluateNextLetter:(char)nextLetter;
 -(BOOL)hasCompletedTargetWord;
 
 @property (readonly) BOOL isAutomaticallyLooped;
-@property int totalPoints;
+@property (readonly) int totalPoints;
 
 
 @end

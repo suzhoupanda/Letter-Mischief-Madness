@@ -10,9 +10,12 @@
 #define ContactBitMasks_h
 
 typedef enum{
-   PLAYER = 0,
-   LETTER = 1,
-   ENEMY
+    PLAYER = 0,
+    ENEMY = 1,
+    LETTER,
+    MISSILE,
+    MISSILE_LAUNCHER_DETECTION_NODE
+    
 }SpaceShooterContactBitmasks;
 
 typedef enum{
