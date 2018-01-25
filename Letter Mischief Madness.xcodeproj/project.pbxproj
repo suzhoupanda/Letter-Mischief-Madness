@@ -120,6 +120,7 @@
 		BDA6E86A2019D38D00E5F42B /* DesertHero+AnimationsGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DesertHero+AnimationsGenerator.h"; sourceTree = "<group>"; };
 		BDA6E86B2019D38D00E5F42B /* DesertHero+AnimationsGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DesertHero+AnimationsGenerator.m"; sourceTree = "<group>"; };
 		BDA6E86D2019D45300E5F42B /* DesertCharacterOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesertCharacterOrientation.h; sourceTree = "<group>"; };
+		BDA6E86E2019E3C000E5F42B /* AnimationType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationType.h; sourceTree = "<group>"; };
 		BDAA12CB2015E28100EE2458 /* Cloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cloud.h; sourceTree = "<group>"; };
 		BDAA12CC2015E38100EE2458 /* Cloud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cloud.m; sourceTree = "<group>"; };
 		BDAA12CE2015EC3C00EE2458 /* SpawnPointManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpawnPointManager.h; sourceTree = "<group>"; };
@@ -337,6 +338,7 @@
 				BDA6E86A2019D38D00E5F42B /* DesertHero+AnimationsGenerator.h */,
 				BDA6E86B2019D38D00E5F42B /* DesertHero+AnimationsGenerator.m */,
 				BDA6E86D2019D45300E5F42B /* DesertCharacterOrientation.h */,
+				BDA6E86E2019E3C000E5F42B /* AnimationType.h */,
 			);
 			path = DesertHero;
 			sourceTree = "<group>";

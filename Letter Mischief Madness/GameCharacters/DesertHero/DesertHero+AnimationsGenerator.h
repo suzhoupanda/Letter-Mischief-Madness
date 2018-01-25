@@ -8,9 +8,13 @@
 
 #import "DesertHero.h"
 #import "DesertCharacterOrientation.h"
+#import "AnimationType.h"
 
 
 @interface DesertHero (AnimationsGenerator)
+
+
+-(NSString*)generateAnimationKeyFor:(AnimationType)animationType andFor:(DesertCharacterOrientation)orientation;
 
 -(SKAction*)generateIdleAnimation:(DesertCharacterOrientation)orientation;
 -(SKAction*)generateRunAnimation:(DesertCharacterOrientation)orientation;

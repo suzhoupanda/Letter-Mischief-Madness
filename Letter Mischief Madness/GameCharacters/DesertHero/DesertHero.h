@@ -13,6 +13,7 @@
 
 @interface DesertHero: NSObject
 
+-(instancetype)init;
 
 @end
 
