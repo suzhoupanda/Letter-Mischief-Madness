@@ -155,6 +155,13 @@ const static double recoveryTime = 0.60;
     
 }
 
+
+-(void)removeLetter{
+    [self.sprite removeFromParent];
+    [self.delegate didDestroyLetter:self];
+
+}
+
 -(void)runDamageAnimation{
     NSLog(@"Letter has been damaged...");
     
@@ -162,6 +169,8 @@ const static double recoveryTime = 0.60;
     
     [self.sprite runAction:fadeAction];
 }
+
+
 
 -(void)die{
     NSLog(@"Letter is dead...");

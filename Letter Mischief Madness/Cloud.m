@@ -45,6 +45,8 @@
     
     self.sprite.anchorPoint = CGPointMake(0.5, 0.5);
     self.sprite.name = @"cloud";
+    self.sprite.xScale *= 0.30;
+    self.sprite.yScale *= 0.30;
     
 }
 

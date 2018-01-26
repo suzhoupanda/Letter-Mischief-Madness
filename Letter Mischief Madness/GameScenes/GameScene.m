@@ -14,14 +14,16 @@
 #import "Cloud.h"
 #import "LetterManager.h"
 #import "WordManager.h"
+#import "TargetWordArray.h"
 #import "Spikeman.h"
 
-@interface GameScene() <SKPhysicsContactDelegate>
+@interface GameScene() <SKPhysicsContactDelegate,WordManagerDelegate>
 
 @property NSArray<NSValue*>*randomSpawnPoints;
 @property LetterManager* letterManager;
 @property NSString* targetWord;
 @property WordManager* wordManager;
+@property TargetWordArray* debugTargetWordArray;
 
 @end
 
@@ -33,26 +35,43 @@
     [self configureScene];
     [self setupBackground];
     [self setupBGMusic];
-    [self acquireTargetWord];
-    [self setupWordManager];
     [self setupSpawnPoints];
-    [self setupLetterManager];
-    [self createClouds];
-    [self.letterManager addLettersTo:self];
     
+    [self setupWordManager];
+    [self acquireTargetWord];
+
+    [self setupLetterManager];
+
+    [self createClouds];
+    [self addTargetWordLetters];
+    /**
     Spikeman* spikeMan1 = [[Spikeman alloc] init];
     Spikeman* spikeMan2 = [[Spikeman alloc] init];
     
     [spikeMan1 addTo:self atPosition:CGPointMake(10.0, -30)];
     [spikeMan2 addTo:self atPosition:CGPointMake(-10.0, -40)];
     
+    **/
     
-    
+}
+
+-(void)addTargetWordLetters{
+
+    if([self.letterManager targetWord]){
+        [self.letterManager addLettersTo:self];
+    }
+
 }
 
 -(void)setupWordManager{
     
-    self.wordManager = [[WordManager alloc] initWithTargetWord:self.targetWord];
+    self.debugTargetWordArray = [[TargetWordArray alloc] initDebugArray];
+    
+    self.wordManager = [[WordManager alloc] initWith:self.debugTargetWordArray];
+    
+    self.wordManager.delegate = self;
+    
+
 }
 
 -(void)setupLetterManager{
@@ -63,7 +82,7 @@
 
 -(void)acquireTargetWord{
     
-    self.targetWord = @"LOVE";
+    self.targetWord = [self.wordManager getTargetWord];
 }
 
 -(void)configureScene{
@@ -182,10 +201,7 @@
 
 -(void)didSimulatePhysics{
     
-    if([self.wordManager hasCompletedTargetWord]){
-        NSLog(@"Game Over, you win!!!");
-        [self setPaused:YES];
-    }
+
     
 }
 
@@ -193,7 +209,6 @@
 
 -(void)didBeginContact:(SKPhysicsContact *)contact{
     
-    NSLog(@"Processing contact between letter and other object...");
     
     SKPhysicsBody* bodyA = contact.bodyA;
     SKPhysicsBody* bodyB = contact.bodyB;
@@ -202,12 +217,10 @@
     SKPhysicsBody* letterBody;
     
     if((bodyA.categoryBitMask & ((UInt32)LETTER)) > 0){
-        NSLog(@"The otherbody is bodyB, the letter is bodyA");
         otherBody = bodyB;
         letterBody = bodyA;
         
     } else {
-        NSLog(@"The otherbody is bodyA, the letter is bodyB");
         otherBody = bodyA;
         letterBody = bodyB;
        
@@ -235,5 +248,62 @@
     
     
 }
+
+/** Word Manager delegate methods **/
+
+-(void)didUpdateWordInProgress:(NSString *)wordInProgress{
+    NSLog(@"The word in progress has been updated - the current word in progress is now: %@", wordInProgress);
+    
+}
+
+-(void)didClearWordInProgress:(NSString *)deletedWordInProgress{
+    
+    NSLog(@"The word in progress %@ has been cleared.  You must start over in order to spell the target word",deletedWordInProgress);
+}
+
+
+-(void)didEarnPoints:(int)totalPoints forTargetWord:(NSString *)targetWord{
+    
+    NSLog(@"The user has earned %d total points for spelling the target word %@",totalPoints,targetWord);
+    
+}
+
+-(void)didCompleteWordInProgress:(NSString *)completedWordInProgress{
+    
+    NSLog(@"The user has completed the word in progress: %@",completedWordInProgress);
+    
+}
+
+-(void)didUpdateTargetWord:(NSString *)updatedTargetWord{
+    
+    NSLog(@"The target word has been updated.  The new target word is: %@",updatedTargetWord);
+    
+    /** Acquire the next target word form the WordManager **/
+    [self acquireTargetWord];
+    
+   
+    /** Remove letter nodes from the scene **/
+    [self removeLetterNodes];
+    
+    /** Clear all the letters currently managed by the LetterManager **/
+    [self.letterManager clearLetters];
+    
+    /** Reset the target word for the letter manager **/
+    [self.letterManager setTargetWord:self.targetWord];
+    
+    /** Add the new letters from the letter manager to the scene **/
+    [self.letterManager addLettersTo:self];
+}
+
+-(void)removeLetterNodes{
+    for (SKSpriteNode* node in self.children) {
+        if([node.name containsString:@"letter"]){
+            [node removeFromParent];
+        }
+    }
+}
+
+
+
 
 @end

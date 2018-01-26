@@ -23,7 +23,7 @@
 
 -(void)addLetterTo:(SKScene*)scene atPosition:(CGPoint)position;
 -(void)setLetterPositionTo:(CGPoint)position;
-
+-(void)removeLetter;
 
 @property (readonly)NSString* identifier;
 @property (readonly)int pointValue;

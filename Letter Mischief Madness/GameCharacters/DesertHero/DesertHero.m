@@ -14,7 +14,7 @@
 #import "AnimationType.h"
 #import "ContactBitMasks.h"
 
-@interface DesertHero()
+@interface DesertHero() <UIGestureRecognizerDelegate>
 
 @property SKSpriteNode* spriteNode;
 
@@ -131,6 +131,15 @@ static NSString* const kDefaultTexture = @"IdleLeft_000";
     
 }
 
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    
+    
+    return YES;
+}
+
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    return YES;
+}
 
 -(void)handleSwipeLeft{
     

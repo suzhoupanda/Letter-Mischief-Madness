@@ -18,7 +18,7 @@
 
     // Load the SKScene from 'GameScene.sks'
     CGSize screenSize = UIScreen.mainScreen.bounds.size;
-    GameScene *scene = [[PLGameScene alloc] initWithSize: screenSize];
+    GameScene *scene = [[GameScene alloc] initWithSize: screenSize];
     
     // Set the scale mode to scale to fit the window
     scene.scaleMode = SKSceneScaleModeAspectFill;

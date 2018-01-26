@@ -15,13 +15,14 @@
 #import "LetterDelegate.h"
 #import "EnemyType.h"
 
-/** The letter manager spawns the letters for a given target word, adding them to the scene, and randomizes the positions of the letters at regular update intervals **/
+/** The letter manager spawns the letters for a given target word, adding them to the scene, and randomizes the positions of the letters at regular update intervals. It also handles some of the contact logic between letter and other game objects.  The letter manager is independent of the word manager, which manages the target word and word in progress.  However, the letter manager can implement the word manager delegate, in which case it can be notified when the target word is changed.  In this situation, it can add new letters to the scene automatically but would have to have a weak reference to the game scene  This should be - the letter manager can take a reference to the scene, allowing it to add new letters when the target word is updated.
+ 
+ As an alternative, the GameScene class itself can serve as the delegate for the word manager class, and when the target word is update in the delegate, messages can be sent to the letter manager, informing it that it needs to update its target word, and it can also be directed to add new letters to the scene **/
 
 @interface LetterManager() <LetterDelegate>
 
 @property NSMutableArray<Letter*>* letters;
 @property NSArray<NSValue*>* spawnPoints;
-@property NSString* targetWord;
 
 @property NSTimeInterval repositionInterval;
 @property NSTimeInterval frameCount;
@@ -185,12 +186,23 @@
 
 }
 
+-(void)clearLetters{
+    
+  
+    self.letters = nil;
+    
+    self.letters = [[NSMutableArray alloc] init];
+
+}
+
 /** Conformance to LetterDelgate protocol **/
 
 -(void)didDestroyLetter:(Letter *)letter{
     
     [self.letters removeObject:letter];
 }
+
+
 
 
 @end

@@ -16,7 +16,6 @@
 @property NSString* targetWord;
 @property NSString* wordInProgress;
 
-@property (readwrite) BOOL isAutomaticallyLooped;
 @property id<WordManagerDataSource> dataSource;
 
 
@@ -37,7 +36,6 @@
         
         self.targetWord = targetWord;
         self.wordInProgress = [[NSString alloc] init];
-        self.isAutomaticallyLooped = NO;
         self.numberOfTargetWordsCompleted = 0;
         
     }
@@ -54,7 +52,6 @@
         self.dataSource = targetWordDataSource;
         self.targetWord = [self.dataSource getInitialTargetWord];
         self.wordInProgress = [[NSString alloc] init];
-        self.isAutomaticallyLooped = YES;
         self.numberOfTargetWordsCompleted = 0;
         
     }
@@ -75,20 +72,23 @@
     
     NSUInteger currentWordLength = self.wordInProgress.length;
     
-    if(!self.isAutomaticallyLooped){
-        if(currentWordLength >= self.targetWord.length){
-
-        
-            NSLog(@"The word in progress has already equaled or exceeded the length of the target word;");
-            [self.delegate didCompleteWordInProgress:self.wordInProgress];
-            self.numberOfTargetWordsCompleted = 1;
-            return;
-        }
     
-    } else {
+    
+    char nextTargetLetter = [self.targetWord characterAtIndex:currentWordLength];
+    
+    /**  If the next letter touched is the same as the next letter in the target word, add it to the cached word in progress **/
+    if(nextLetter == nextTargetLetter){
+        
+        [self showDebugMessageWith:@"The next letter equals the next letter in the target word"];
+   
+        NSString* previousWordInProgress = self.wordInProgress;
+        NSLog(@"Previous word in progress %@",previousWordInProgress);
+        
+        self.wordInProgress = [NSString stringWithFormat:@"%@%c",previousWordInProgress,nextLetter];
+        
+        NSLog(@"The new word in progress is: %@",self.wordInProgress);
+        
         if(self.hasCompletedTargetWord){
-            
-
             self.totalPoints += self.pointsForTargetWord;
             [self.delegate didEarnPoints:self.pointsForTargetWord forTargetWord:self.targetWord];
             
@@ -103,26 +103,7 @@
             [self.delegate didUpdateWordInProgress:self.wordInProgress];
             [self.delegate didClearWordInProgress:deletedWordInProgress];
             
-
-        } else {
-            
-            NSString* deletedWordInProgress = self.wordInProgress;
-            
-            self.wordInProgress = [[NSString alloc] init];
-            
-            [self.delegate didClearWordInProgress:deletedWordInProgress];
-            [self.delegate didUpdateWordInProgress:self.wordInProgress];
         }
-    }
-    char nextTargetLetter = [self.targetWord characterAtIndex:currentWordLength];
-    
-    /**  If the next letter touched is the same as the next letter in the target word, add it to the cached word in progress **/
-    if(nextLetter == nextTargetLetter){
-        
-        [self showDebugMessageWith:@"The next letter equals the next letter in the target word"];
-   
-        
-        self.wordInProgress = [NSString stringWithFormat:@"%@%c",self.wordInProgress,nextLetter];
         
         [self.delegate didUpdateWordInProgress:self.wordInProgress];
         
@@ -139,17 +120,17 @@
         [self.delegate didClearWordInProgress:deletedWordInProgress];
         [self.delegate didUpdateWordInProgress:self.wordInProgress];
         
-    }
+        }
+        
+    
     
 }
 
 -(BOOL)hasCompletedTargetWord{
     
-    if(self.wordInProgress && self.targetWord){
-        return [self.wordInProgress isEqualToString:self.targetWord];
-    }
+    return self.wordInProgress.length == self.targetWord.length;
     
-    return NO;
+    
 }
 
 -(int)pointsForTargetWord{

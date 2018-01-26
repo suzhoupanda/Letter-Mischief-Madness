@@ -9,13 +9,19 @@
 #ifndef LetterManager_h
 #define LetterManager_h
 
+#import "WordManagerDelegate.h"
+
 @interface LetterManager: NSObject 
+
+@property NSString* targetWord;
+
 
 -(instancetype)initWithSpawnPoints:(NSArray<NSValue*>*)spawnPoints andWithTargetWord:(NSString*)targetWord;
 
 -(void)update:(NSTimeInterval)currentTime;
 
 -(void)addLettersTo:(SKScene*)scene;
+-(void)clearLetters;
 
 -(void)handleContactForLetterWith:(NSString*)letterIdentifier andWithContactedObjectName:(NSString*)contactedObjectName;
 
