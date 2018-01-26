@@ -17,6 +17,8 @@
 #import "TargetWordArray.h"
 #import "Spikeman.h"
 #import "StatTracker.h"
+#import "HUDManager.h"
+
 
 @interface GameScene() <SKPhysicsContactDelegate,WordManagerDelegate>
 
@@ -27,10 +29,15 @@
 @property WordManager* wordManager;
 @property TargetWordArray* debugTargetWordArray;
 @property StatTracker* statTracker;
+@property HUDManager* hudManager;
 
 @end
 
 @implementation GameScene
+
+const static CGFloat kHUDXPosition = 0.0;
+const static CGFloat kHUDYPosition = 0.0;
+
 
 - (void)didMoveToView:(SKView *)view {
     // Setup your scene here
@@ -39,6 +46,7 @@
     [self setupBackground];
     [self setupBGMusic];
     [self setupSpawnPoints];
+    [self setupHUDManager];
     [self setupStatTracker];
     [self setupWordManager];
     [self acquireTargetWord];
@@ -57,6 +65,13 @@
         [self.letterManager addLettersTo:self];
     }
 
+}
+
+
+-(void)setupHUDManager{
+    
+    [self.hudManager addHUDNodeTo:self atPosition:CGPointMake(kHUDXPosition, kHUDYPosition)];
+    
 }
 
 -(void)setupWordManager{
@@ -255,6 +270,7 @@
 -(void)didUpdateWordInProgress:(NSString *)wordInProgress{
     NSLog(@"The word in progress has been updated - the current word in progress is now: %@", wordInProgress);
     
+    [self.hudManager updateWordInProgressNode:wordInProgress];
 }
 
 -(void)didClearWordInProgress:(NSString *)deletedWordInProgress{
@@ -266,6 +282,7 @@
 
 -(void)didMisspellWordInProgress:(NSString*)misspelledWordInProgress{
     
+    self.statTracker.numberOfMisspellings += 1;
     
 }
 
@@ -282,6 +299,9 @@
     
     self.statTracker.numberOfTargetWordsCompleted += 1;
     [self.statTracker addPointsForTargetWord:previousTargetWord];
+    
+    [self.hudManager updateTargetWordNode:updatedTargetWord];
+    [self.hudManager updateScoreNode:self.statTracker.totalPointsAccumulated];
     
     
     /** Acquire the next target word form the WordManager **/

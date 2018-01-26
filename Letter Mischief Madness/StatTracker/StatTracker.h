@@ -19,7 +19,7 @@
 @property int numberOfMisspellings;
 @property int totalPointsAccumulated;
 @property int numberOfLettersSpelledCorrectly;
-@property (readonly) spellingAccuracy;
+@property (readonly) double spellingAccuracy;
 
 -(instancetype)init;
 -(void)addPointsForTargetWord:(NSString*)targetWord;

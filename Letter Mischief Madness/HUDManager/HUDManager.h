@@ -10,10 +10,16 @@
 #define HUDManager_h
 
 @import Foundation;
+@import SpriteKit;
 
+@interface HUDManager: NSObject
 
-@interface HUDManager
-
+-(instancetype)init;
+-(instancetype)initWithTargetWord:(NSString*)targetWord;
+-(void)addHUDNodeTo:(SKScene*)scene atPosition:(CGPoint)position;
+-(void)updateScoreNode:(int)updatedScore;
+-(void)updateTargetWordNode:(NSString*)updatedTargetWord;
+-(void)updateWordInProgressNode:(NSString*)updatedWordInProgress;
 
 @end
 
