@@ -16,14 +16,17 @@
 #import "WordManager.h"
 #import "TargetWordArray.h"
 #import "Spikeman.h"
+#import "StatTracker.h"
 
 @interface GameScene() <SKPhysicsContactDelegate,WordManagerDelegate>
 
 @property NSArray<NSValue*>*randomSpawnPoints;
 @property LetterManager* letterManager;
 @property NSString* targetWord;
+
 @property WordManager* wordManager;
 @property TargetWordArray* debugTargetWordArray;
+@property StatTracker* statTracker;
 
 @end
 
@@ -36,22 +39,15 @@
     [self setupBackground];
     [self setupBGMusic];
     [self setupSpawnPoints];
-    
+    [self setupStatTracker];
     [self setupWordManager];
     [self acquireTargetWord];
-
     [self setupLetterManager];
-
     [self createClouds];
     [self addTargetWordLetters];
-    /**
-    Spikeman* spikeMan1 = [[Spikeman alloc] init];
-    Spikeman* spikeMan2 = [[Spikeman alloc] init];
     
-    [spikeMan1 addTo:self atPosition:CGPointMake(10.0, -30)];
-    [spikeMan2 addTo:self atPosition:CGPointMake(-10.0, -40)];
     
-    **/
+
     
 }
 
@@ -72,6 +68,11 @@
     self.wordManager.delegate = self;
     
 
+}
+
+-(void)setupStatTracker{
+    
+    self.statTracker = [[StatTracker alloc] init];
 }
 
 -(void)setupLetterManager{
@@ -259,14 +260,15 @@
 -(void)didClearWordInProgress:(NSString *)deletedWordInProgress{
     
     NSLog(@"The word in progress %@ has been cleared.  You must start over in order to spell the target word",deletedWordInProgress);
-}
-
-
--(void)didEarnPoints:(int)totalPoints forTargetWord:(NSString *)targetWord{
     
-    NSLog(@"The user has earned %d total points for spelling the target word %@",totalPoints,targetWord);
     
 }
+
+-(void)didMisspellWordInProgress:(NSString*)misspelledWordInProgress{
+    
+    
+}
+
 
 -(void)didCompleteWordInProgress:(NSString *)completedWordInProgress{
     
@@ -274,9 +276,13 @@
     
 }
 
--(void)didUpdateTargetWord:(NSString *)updatedTargetWord{
+-(void)didUpdateTargetWordTo:(NSString*)updatedTargetWord fromPreviousTargetWord:(NSString*)previousTargetWord{
     
     NSLog(@"The target word has been updated.  The new target word is: %@",updatedTargetWord);
+    
+    self.statTracker.numberOfTargetWordsCompleted += 1;
+    [self.statTracker addPointsForTargetWord:previousTargetWord];
+    
     
     /** Acquire the next target word form the WordManager **/
     [self acquireTargetWord];
@@ -293,6 +299,12 @@
     
     /** Add the new letters from the letter manager to the scene **/
     [self.letterManager addLettersTo:self];
+}
+
+-(void)didExtendWordInProgress:(NSString*)extendedWordInProgress{
+    
+    self.statTracker.numberOfLettersSpelledCorrectly += 1;
+    
 }
 
 -(void)removeLetterNodes{

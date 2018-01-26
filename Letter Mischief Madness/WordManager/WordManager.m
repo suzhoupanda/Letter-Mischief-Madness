@@ -19,11 +19,6 @@
 @property id<WordManagerDataSource> dataSource;
 
 
-@property (readonly) int pointsForTargetWord;
-@property (readwrite) int totalPoints;
-
-@property int numberOfTargetWordsCompleted;
-
 @end
 
 @implementation WordManager
@@ -36,7 +31,6 @@
         
         self.targetWord = targetWord;
         self.wordInProgress = [[NSString alloc] init];
-        self.numberOfTargetWordsCompleted = 0;
         
     }
     
@@ -52,7 +46,6 @@
         self.dataSource = targetWordDataSource;
         self.targetWord = [self.dataSource getInitialTargetWord];
         self.wordInProgress = [[NSString alloc] init];
-        self.numberOfTargetWordsCompleted = 0;
         
     }
     
@@ -79,44 +72,42 @@
     /**  If the next letter touched is the same as the next letter in the target word, add it to the cached word in progress **/
     if(nextLetter == nextTargetLetter){
         
-        [self showDebugMessageWith:@"The next letter equals the next letter in the target word"];
    
         NSString* previousWordInProgress = self.wordInProgress;
-        NSLog(@"Previous word in progress %@",previousWordInProgress);
         
         self.wordInProgress = [NSString stringWithFormat:@"%@%c",previousWordInProgress,nextLetter];
         
-        NSLog(@"The new word in progress is: %@",self.wordInProgress);
-        
+        [self.delegate didUpdateWordInProgress:self.wordInProgress];
+        [self.delegate didExtendWordInProgress:self.wordInProgress];
+
+      
         if(self.hasCompletedTargetWord){
-            self.totalPoints += self.pointsForTargetWord;
-            [self.delegate didEarnPoints:self.pointsForTargetWord forTargetWord:self.targetWord];
             
-            self.numberOfTargetWordsCompleted += 1;
-            
+
+            NSString* previousTargetWord = self.targetWord;
             [self acquireNextTargetWord];
-            [self.delegate didUpdateTargetWord:self.targetWord];
+            
+            [self.delegate didUpdateTargetWordTo:self.targetWord fromPreviousTargetWord:previousTargetWord];
+            
             
             NSString* deletedWordInProgress = self.wordInProgress;
             
             self.wordInProgress = [[NSString alloc] init];
-            [self.delegate didUpdateWordInProgress:self.wordInProgress];
             [self.delegate didClearWordInProgress:deletedWordInProgress];
             
         }
         
-        [self.delegate didUpdateWordInProgress:self.wordInProgress];
         
-        [self showDebugMessageWith:[NSString stringWithFormat:@"The word in progress is: %@",self.wordInProgress]];
+
         
         /** If the next letter touched is not the same as the next letter in the target word, clear the word in progress; based on game rules, the user must start building the word again **/
     } else {
         
-        [self showDebugMessageWith:@"The next letter does not equal the next letter in the target word - proceeding to clear the temporary word..."];
 
         NSString* deletedWordInProgress = self.wordInProgress;
         self.wordInProgress = [[NSString alloc] init];
         
+        [self.delegate didMisspellWordInProgress:deletedWordInProgress];
         [self.delegate didClearWordInProgress:deletedWordInProgress];
         [self.delegate didUpdateWordInProgress:self.wordInProgress];
         
@@ -133,20 +124,6 @@
     
 }
 
--(int)pointsForTargetWord{
-    
-    int totalPoints = 0;
-    
-    for (NSUInteger charIndex = 0; charIndex < self.wordInProgress.length; charIndex++) {
-        
-        char wordChar = [self.targetWord characterAtIndex:charIndex];
-        int pointsForChar = [Letter pointsForLetter:wordChar];
-        totalPoints += pointsForChar;
-        
-    }
-    
-    return totalPoints;
-}
 
 /** **/
 -(void)acquireNextTargetWord{

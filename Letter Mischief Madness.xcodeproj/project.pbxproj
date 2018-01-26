@@ -41,6 +41,8 @@
 		BDAA12E02015F32F00EE2458 /* Mishief-Stroll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12DE2015F32600EE2458 /* Mishief-Stroll.mp3 */; };
 		BDAA12E12015F33200EE2458 /* Mission-Plausible.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDAA12DF2015F32600EE2458 /* Mission-Plausible.mp3 */; };
 		BDAA12E32015F39D00EE2458 /* Letter.m in Sources */ = {isa = PBXBuildFile; fileRef = BDAA12E22015F39D00EE2458 /* Letter.m */; };
+		BDB631AB201B240300420A36 /* StatTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB631AA201B240300420A36 /* StatTracker.m */; };
+		BDB631AF201B242200420A36 /* HUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB631AE201B242200420A36 /* HUDManager.m */; };
 		BDC33A032019998C004C7ED1 /* TargetWordArray.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC33A022019998C004C7ED1 /* TargetWordArray.m */; };
 		BDD9A7A32017299200670EF1 /* WordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9A7A22017299200670EF1 /* WordManager.m */; };
 		BDD9A7A7201732A700670EF1 /* Spikeman.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9A7A6201732A700670EF1 /* Spikeman.m */; };
@@ -130,6 +132,10 @@
 		BDAA12DE2015F32600EE2458 /* Mishief-Stroll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mishief-Stroll.mp3"; sourceTree = "<group>"; };
 		BDAA12DF2015F32600EE2458 /* Mission-Plausible.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mission-Plausible.mp3"; sourceTree = "<group>"; };
 		BDAA12E22015F39D00EE2458 /* Letter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Letter.m; sourceTree = "<group>"; };
+		BDB631A9201B23DA00420A36 /* StatTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatTracker.h; sourceTree = "<group>"; };
+		BDB631AA201B240300420A36 /* StatTracker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatTracker.m; sourceTree = "<group>"; };
+		BDB631AD201B241800420A36 /* HUDManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUDManager.h; sourceTree = "<group>"; };
+		BDB631AE201B242200420A36 /* HUDManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUDManager.m; sourceTree = "<group>"; };
 		BDC33A0120199966004C7ED1 /* TargetWordArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TargetWordArray.h; sourceTree = "<group>"; };
 		BDC33A022019998C004C7ED1 /* TargetWordArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TargetWordArray.m; sourceTree = "<group>"; };
 		BDC33A042019A549004C7ED1 /* WordManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordManagerDelegate.h; sourceTree = "<group>"; };
@@ -241,6 +247,8 @@
 				BD9A10AC2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m */,
 				BDA6E85D2019B16E00E5F42B /* BackgroundScenes */,
 				BDAA12CB2015E28100EE2458 /* Cloud.h */,
+				BDB631AC201B240900420A36 /* HUDManager */,
+				BDB631A8201B23C700420A36 /* StatTracker */,
 				BDAA12CC2015E38100EE2458 /* Cloud.m */,
 				BDA6E8582019AFFD00E5F42B /* TileSets */,
 				BD9E89892016134F00A0EC06 /* Plan.rtf */,
@@ -350,6 +358,24 @@
 				BDAA12DF2015F32600EE2458 /* Mission-Plausible.mp3 */,
 			);
 			path = music_loops;
+			sourceTree = "<group>";
+		};
+		BDB631A8201B23C700420A36 /* StatTracker */ = {
+			isa = PBXGroup;
+			children = (
+				BDB631A9201B23DA00420A36 /* StatTracker.h */,
+				BDB631AA201B240300420A36 /* StatTracker.m */,
+			);
+			path = StatTracker;
+			sourceTree = "<group>";
+		};
+		BDB631AC201B240900420A36 /* HUDManager */ = {
+			isa = PBXGroup;
+			children = (
+				BDB631AD201B241800420A36 /* HUDManager.h */,
+				BDB631AE201B242200420A36 /* HUDManager.m */,
+			);
+			path = HUDManager;
 			sourceTree = "<group>";
 		};
 		BDD9A7A12017297100670EF1 /* WordManager */ = {
@@ -542,7 +568,9 @@
 				BD9A10AD2015C18F00DBC209 /* GKRandomDistribution+ScreenPoints.m in Sources */,
 				BD2860602015FC68001E96B0 /* LetterManager.m in Sources */,
 				BD2CCF8920184FE000D852D6 /* TopDownPlane.m in Sources */,
+				BDB631AF201B242200420A36 /* HUDManager.m in Sources */,
 				BDD9A7A7201732A700670EF1 /* Spikeman.m in Sources */,
+				BDB631AB201B240300420A36 /* StatTracker.m in Sources */,
 				BDAA12CD2015E38100EE2458 /* Cloud.m in Sources */,
 				BD9A10B02015C2A700DBC209 /* Constants.m in Sources */,
 				BDA6E8562019AF3A00E5F42B /* PLGameScene.m in Sources */,

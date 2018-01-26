@@ -18,13 +18,17 @@
 
 @optional
 
+-(void)didExtendWordInProgress:(NSString*)extendedWordInProgress;
+
+-(void)didMisspellWordInProgress:(NSString*)misspelledWordInProgress;
+
 -(void)didClearWordInProgress:(NSString*)deletedWordInProgress;
 
 -(void)didCompleteWordInProgress:(NSString*)completedWordInProgress;
 
 -(void)didEarnPoints:(int)totalPoints forTargetWord:(NSString*)targetWord;
 
--(void)didUpdateTargetWord:(NSString*)updatedTargetWord;
+-(void)didUpdateTargetWordTo:(NSString*)updatedTargetWord fromPreviousTargetWord:(NSString*)previousTargetWord;
 
 
 
